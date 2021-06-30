@@ -1,0 +1,1099 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Notebook: Using RailEnv</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/tuts/or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/tuts/rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/getting-started/env/The_Rail_Environment.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Notebook: Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-big-picture">
+   The big picture
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-more-details">
+   In more details
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-rail-networks">
+     Generating rail networks
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-an-agent">
+     Running an agent
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="notebook-using-railenv">
+<h1>Notebook: Using <code class="docutils literal notranslate"><span class="pre">RailEnv</span></code><a class="headerlink" href="#notebook-using-railenv" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook, we will see how to create, interact with and render railway systems.</p>
+<p>You can run this document as an interactive notebook in one click:
+<a class="reference external" href="https://mybinder.org/v2/gh/MasterScrat/getting-started/master?filepath=notebook_1.ipynb"><img alt="Open In Binder" src="https://mybinder.org/static/images/badge_logo.svg" /></a><a class="reference external" href="https://colab.research.google.com/github/MasterScrat/getting-started/blob/master/notebook_1.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+</div>
+<div class="section" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install Flatland</span>
+<span class="o">%</span><span class="k">cd</span> /content
+<span class="o">!</span>git clone https://gitlab.aicrowd.com/flatland/flatland.git/
+<span class="o">%</span><span class="k">cd</span> flatland
+<span class="o">!</span>pip install -e .
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-big-picture">
+<h1>The big picture<a class="headerlink" href="#the-big-picture" title="Permalink to this headline">¶</a></h1>
+<p>Let’s first go over the main use cases of <code class="docutils literal notranslate"><span class="pre">RailEnv</span></code>, the Flatland environment. Additional details will be provided in the second section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.envs.rail_env</span> <span class="kn">import</span> <span class="n">RailEnv</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.rail_generators</span> <span class="kn">import</span> <span class="n">random_rail_generator</span>
+
+<span class="c1"># Build a random 15x15 rail networks from a list of probability per cell type</span>
+<span class="n">transition_prob</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Type 0 - empty cell</span>
+    <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Type 1 - straight</span>
+    <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Type 2 - simple switch</span>
+    <span class="mf">0.3</span><span class="p">,</span>  <span class="c1"># Type 3 - diamond crossing</span>
+    <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Type 4 - single slip</span>
+    <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Type 5 - double slip</span>
+    <span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># Type 6 - symmetrical</span>
+    <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Type 7 - dead end</span>
+    <span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># Type 8 - turn left</span>
+    <span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># Type 9 - turn right</span>
+    <span class="mf">1.0</span>  <span class="c1"># Type 10 - mirrored switch</span>
+<span class="p">]</span>
+
+<span class="n">rail_generator</span> <span class="o">=</span> <span class="n">random_rail_generator</span><span class="p">(</span><span class="n">cell_type_relative_proportion</span><span class="o">=</span><span class="n">transition_prob</span><span class="p">)</span>
+
+<span class="n">random_env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">rail_generator</span><span class="o">=</span><span class="n">rail_generator</span><span class="p">,</span>
+    <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Call reset() to initialize the environment</span>
+<span class="n">observation</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">random_env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">from</span> <span class="nn">flatland.utils.rendertools</span> <span class="kn">import</span> <span class="n">RenderTool</span>
+
+<span class="c1"># Render the environment</span>
+<span class="k">def</span> <span class="nf">render_env</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+    <span class="n">env_renderer</span> <span class="o">=</span> <span class="n">RenderTool</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">gl</span><span class="o">=</span><span class="s2">&quot;PILSVG&quot;</span><span class="p">)</span>
+    <span class="n">env_renderer</span><span class="o">.</span><span class="n">render_env</span><span class="p">()</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">env_renderer</span><span class="o">.</span><span class="n">get_image</span><span class="p">()</span>
+    <span class="n">pil_image</span> <span class="o">=</span> <span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">pil_image</span><span class="p">)</span>
+
+<span class="n">render_env</span><span class="p">(</span><span class="n">random_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/flatland/flatland/utils/rendertools.py:460: UserWarning: Predictor did not provide any predicted cells to render.                 Observation builder needs to populate: env.dev_obs_dict
+  Observation builder needs to populate: env.dev_obs_dict&quot;)
+</pre></div>
+</div>
+<img alt="../../_images/The_Rail_Environment_5_1.png" src="../../_images/The_Rail_Environment_5_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># By default, the environment provides global observations</span>
+<span class="k">for</span> <span class="n">agent_handle</span> <span class="ow">in</span> <span class="n">random_env</span><span class="o">.</span><span class="n">get_agent_handles</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Observations for agent </span><span class="si">{}</span><span class="s1">:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">agent_handle</span><span class="p">))</span>
+    <span class="n">agent_obs</span> <span class="o">=</span> <span class="n">observation</span><span class="p">[</span><span class="n">agent_handle</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Transition map</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">agent_obs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Agent position</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">agent_obs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;- Agent target </span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">agent_obs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Observations for agent 0:
+- Transition map
+[[[0. 0. 0. ... 0. 0. 0.]
+  [0. 1. 0. ... 1. 1. 0.]
+  [0. 0. 1. ... 1. 1. 0.]
+  ...
+  [0. 0. 0. ... 1. 0. 0.]
+  [0. 0. 0. ... 1. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]]
+
+ [[0. 0. 0. ... 0. 0. 0.]
+  [0. 1. 1. ... 0. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]
+  ...
+  [0. 0. 0. ... 0. 0. 0.]
+  [0. 1. 0. ... 0. 1. 0.]
+  [0. 0. 0. ... 0. 0. 0.]]
+
+ [[0. 1. 0. ... 1. 1. 0.]
+  [0. 0. 0. ... 0. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]
+  ...
+  [0. 0. 0. ... 0. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]]
+
+ ...
+
+ [[0. 0. 0. ... 0. 0. 0.]
+  [1. 0. 0. ... 0. 0. 0.]
+  [1. 0. 0. ... 0. 0. 0.]
+  ...
+  [0. 0. 0. ... 0. 0. 0.]
+  [1. 0. 0. ... 0. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]]
+
+ [[0. 0. 0. ... 0. 0. 0.]
+  [0. 1. 1. ... 0. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]
+  ...
+  [0. 0. 0. ... 0. 0. 0.]
+  [0. 1. 0. ... 0. 1. 0.]
+  [0. 0. 0. ... 0. 0. 0.]]
+
+ [[0. 0. 0. ... 0. 0. 0.]
+  [0. 1. 1. ... 0. 0. 0.]
+  [0. 1. 0. ... 0. 0. 0.]
+  ...
+  [0. 0. 0. ... 0. 0. 0.]
+  [0. 1. 0. ... 0. 0. 0.]
+  [0. 0. 0. ... 0. 0. 0.]]]
+
+- Agent position
+[[[-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  ...
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]]
+
+ [[-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  ...
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]]
+
+ [[-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  ...
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]]
+
+ [[-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  ...
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]
+  [-1. -1. -1. ... -1. -1. -1.]]
+
+ [[ 0.  0.  0. ...  0.  0.  0.]
+  [ 0.  0.  0. ...  0.  0.  0.]
+  [ 0.  0.  0. ...  0.  0.  0.]
+  ...
+  [ 0.  0.  0. ...  0.  0.  0.]
+  [ 0.  0.  0. ...  0.  0.  0.]
+  [ 0.  0.  0. ...  0.  0.  0.]]]
+
+- Agent target 
+[[[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]]
+
+ [[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.envs.rail_generators</span> <span class="kn">import</span> <span class="n">sparse_rail_generator</span>
+
+<span class="c1"># More realistic networks can be built using sparse_rail_generator</span>
+<span class="n">sparse_env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">rail_generator</span><span class="o">=</span><span class="n">sparse_rail_generator</span><span class="p">(</span>
+        <span class="n">max_num_cities</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  <span class="c1"># Number of cities (= train stations)</span>
+        <span class="n">grid_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># Distribute the cities evenly in a grid</span>
+        <span class="n">max_rails_between_cities</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># Max number of rails connecting to a city</span>
+        <span class="n">max_rails_in_city</span><span class="o">=</span><span class="mi">3</span>  <span class="c1"># Number of parallel tracks in cities</span>
+    <span class="p">),</span>
+    <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">observation</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">sparse_env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="n">render_env</span><span class="p">(</span><span class="n">sparse_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/flatland/flatland/utils/rendertools.py:460: UserWarning: Predictor did not provide any predicted cells to render.                 Observation builder needs to populate: env.dev_obs_dict
+  Observation builder needs to populate: env.dev_obs_dict&quot;)
+</pre></div>
+</div>
+<img alt="../../_images/The_Rail_Environment_7_1.png" src="../../_images/The_Rail_Environment_7_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.rail_generators</span> <span class="kn">import</span> <span class="n">rail_from_manual_specifications_generator</span>
+
+<span class="c1"># Environments can also be created from fixed configurations</span>
+<span class="c1"># Here we define a 6x4 railway from a 2D array</span>
+<span class="n">specs</span> <span class="o">=</span> <span class="p">[[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span>
+         <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span>
+         <span class="p">[(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">270</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">90</span><span class="p">)],</span>
+         <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]]</span>
+
+<span class="n">rail_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">specs</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="n">fixed_env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="n">rail_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">rail_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">rail_generator</span><span class="o">=</span><span class="n">rail_from_manual_specifications_generator</span><span class="p">(</span><span class="n">specs</span><span class="p">),</span>
+    <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">observation</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">fixed_env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A real controller would be implemented here</span>
+<span class="k">class</span> <span class="nc">RandomController</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_size</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_size</span> <span class="o">=</span> <span class="n">action_size</span>
+
+    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observations</span><span class="p">):</span>
+        <span class="n">actions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">agent_handle</span><span class="p">,</span> <span class="n">observation</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">observations</span><span class="p">):</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action_size</span><span class="p">)</span>
+            <span class="n">actions</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">agent_handle</span><span class="p">:</span> <span class="n">action</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">actions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="c1"># The environment provides a gym-like interface.</span>
+<span class="k">def</span> <span class="nf">run_episode</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+    <span class="n">controller</span> <span class="o">=</span> <span class="n">RandomController</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">observations</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">actions</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span>
+        <span class="n">next_observations</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">dones</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">actions</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">agent_handle</span> <span class="ow">in</span> <span class="n">env</span><span class="o">.</span><span class="n">get_agent_handles</span><span class="p">():</span>
+            <span class="n">score</span> <span class="o">+=</span> <span class="n">all_rewards</span><span class="p">[</span><span class="n">agent_handle</span><span class="p">]</span>
+
+        <span class="n">render_env</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Timestep </span><span class="si">{}</span><span class="s1">, total score = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">dones</span><span class="p">[</span><span class="s1">&#39;__all__&#39;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All done!&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Episode didn&#39;t finish after 50 timesteps.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run an episode in the random environment</span>
+<span class="n">run_episode</span><span class="p">(</span><span class="n">random_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/The_Rail_Environment_11_0.png" src="../../_images/The_Rail_Environment_11_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestep 49, total score = -50.0
+Episode didn&#39;t finish after 50 timesteps.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run an episode in the sparse environment</span>
+<span class="n">run_episode</span><span class="p">(</span><span class="n">sparse_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/The_Rail_Environment_12_0.png" src="../../_images/The_Rail_Environment_12_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestep 49, total score = -50.0
+Episode didn&#39;t finish after 50 timesteps.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run an episode in the fixed environment</span>
+<span class="n">run_episode</span><span class="p">(</span><span class="n">fixed_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/The_Rail_Environment_13_0.png" src="../../_images/The_Rail_Environment_13_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestep 1, total score = 0.0
+All done!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="in-more-details">
+<h1>In more details<a class="headerlink" href="#in-more-details" title="Permalink to this headline">¶</a></h1>
+<p>Let’s now dive into more details about some of the points mentioned above.</p>
+<p>The basic usage of the <code class="docutils literal notranslate"><span class="pre">RailEnv</span></code> environment consists in creating a <code class="docutils literal notranslate"><span class="pre">RailEnv</span></code> object endowed with</p>
+<ul class="simple">
+<li><p>a <strong>rail generator</strong>, that generates new rail networks on each reset,</p></li>
+<li><p>an <strong>observation generator</strong>, that provides a suitable observation vector to the agents.</p></li>
+</ul>
+<p>As we have seen above, the environment provides very complete observations by default. You typically won’t use this object as-is. One of the main objectives of the Flatland challenge is to <strong>find suitable observations</strong> to solve the task at hand. We will see how this works in the next notebook.</p>
+<p>For now, let’s see more precisely how we can create rail networks and use them to train agents.</p>
+<div class="section" id="generating-rail-networks">
+<h2>Generating rail networks<a class="headerlink" href="#generating-rail-networks" title="Permalink to this headline">¶</a></h2>
+<p>There are multiple ways to generate a rail network. The simpler one is to describe it explicitely cell by cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">[[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span>
+         <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span>
+         <span class="p">[(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">270</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">90</span><span class="p">)],</span>
+         <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">specs</span></code> is a 2-dimensional array of tuples</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rail_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">specs</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">rail_shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4, 6, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This <code class="docutils literal notranslate"><span class="pre">specs</span></code> array represent a 4x6 2D grid of tuples. In each tuple, the first element represent the <strong>cell type</strong>, and the second the <strong>rotation</strong> of the cell (0, 90, 180 or 270 degrees clockwise).</p>
+<p>The following image gives an overview of the eight basic cell types. These can be rotated in steps of 45° and mirrored along the North-South of East-West axis.</p>
+<p><img alt="cell types" src="https://github.com/MasterScrat/getting-started/blob/master/assets/transitions.png?raw=1" /></p>
+<p>Here’s the full list of cell types. This list can be found in <code class="docutils literal notranslate"><span class="pre">flatland.core.grid.rail_env_grid.RailEnvTransitions</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">transition_list</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;0000000000000000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># empty cell - Case 0</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;1000000000100000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 1 - straight</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;1001001000100000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 2 - simple switch</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;1000010000100001&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 3 - diamond drossing</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;1001011000100001&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 4 - single slip</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;1100110000110011&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 5 - double slip</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;0101001000000010&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 6 - symmetrical</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;0010000000000000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 7 - dead end</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;0100000000000010&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 1b (8)  - simple turn right</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;0001001000000000&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># Case 1c (9)  - simple turn left</span>
+                   <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;1100000000100010&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>  <span class="c1"># Case 2b (10) - simple switch mirrored</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">RailEnv</span></code> constructor accepts a <code class="docutils literal notranslate"><span class="pre">rail_generator</span></code> parameter, which is used to generate the rail networks. When creating fixed networks, we use the <code class="docutils literal notranslate"><span class="pre">rail_from_manual_specifications_generator</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fixed_env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="n">rail_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">rail_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">rail_generator</span><span class="o">=</span><span class="n">rail_from_manual_specifications_generator</span><span class="p">(</span><span class="n">specs</span><span class="p">),</span>
+    <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A call to <code class="docutils literal notranslate"><span class="pre">reset()</span></code> is necessary to fully initialize the environment. As usual with gym-like environment, this returns the initial observation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observations</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">fixed_env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This result in a fixed rail network:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">render_env</span><span class="p">(</span><span class="n">fixed_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/flatland/flatland/utils/rendertools.py:460: UserWarning: Predictor did not provide any predicted cells to render.                 Observation builder needs to populate: env.dev_obs_dict
+  Observation builder needs to populate: env.dev_obs_dict&quot;)
+</pre></div>
+</div>
+<img alt="../../_images/The_Rail_Environment_29_1.png" src="../../_images/The_Rail_Environment_29_1.png" />
+</div>
+</div>
+<p>We can also create a randomly generated network using <code class="docutils literal notranslate"><span class="pre">random_rail_generator</span></code>. In this case, we can optionally specify the probability of each cell type, using the same list as described before. This results in a rail network that is different every time <code class="docutils literal notranslate"><span class="pre">reset()</span></code> is called.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">transition_prob</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Type 0 - empty cell</span>
+    <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Type 1 - straight</span>
+    <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># Type 2 - simple switch</span>
+    <span class="mf">0.3</span><span class="p">,</span>  <span class="c1"># Type 3 - diamond crossing</span>
+    <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Type 4 - single slip</span>
+    <span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Type 5 - double slip</span>
+    <span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># Type 6 - symmetrical</span>
+    <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># Type 7 - dead end</span>
+    <span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># Type 8 - turn left</span>
+    <span class="mf">0.2</span><span class="p">,</span>  <span class="c1"># Type 9 - turn right</span>
+    <span class="mf">1.0</span>  <span class="c1"># Type 10 - mirrored switch</span>
+<span class="p">]</span>
+
+<span class="n">random_env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">rail_generator</span><span class="o">=</span><span class="n">random_rail_generator</span><span class="p">(</span><span class="n">cell_type_relative_proportion</span><span class="o">=</span><span class="n">transition_prob</span><span class="p">),</span>
+    <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="n">observations</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">random_env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="n">render_env</span><span class="p">(</span><span class="n">random_env</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/flatland/flatland/utils/rendertools.py:460: UserWarning: Predictor did not provide any predicted cells to render.                 Observation builder needs to populate: env.dev_obs_dict
+  Observation builder needs to populate: env.dev_obs_dict&quot;)
+</pre></div>
+</div>
+<img alt="../../_images/The_Rail_Environment_31_1.png" src="../../_images/The_Rail_Environment_31_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="running-an-agent">
+<h2>Running an agent<a class="headerlink" href="#running-an-agent" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">RailEnv</span></code> is targeted at multi-agents experiments. For this purpose, it is derived from RLLib’s <code class="docutils literal notranslate"><span class="pre">MultiAgentEnv</span></code> class. You can <a class="reference external" href="https://ray.readthedocs.io/en/latest/rllib-env.html">read more details about it here</a>.</p>
+<p>The environment is run by supplying the <code class="docutils literal notranslate"><span class="pre">step</span></code> function with a <strong>dictionary</strong> of actions, whose keys are agents’ handles and the corresponding values are the selected actions. This dictionary is passed to the environment which checks the validity of all actions and update the environment state.</p>
+<p>The environment returns an array of new observations, a reward dictionary for all the agents as well as a flags indicating which agents are done. This information can be used to update the policy of your agent and if <code class="docutils literal notranslate"><span class="pre">done[‘__all__’]</span> <span class="pre">==</span> <span class="pre">True</span></code> the episode terminates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.envs.rail_env</span> <span class="kn">import</span> <span class="n">RailEnvActions</span>
+
+<span class="n">controller</span> <span class="o">=</span> <span class="n">RandomController</span><span class="p">(</span><span class="n">random_env</span><span class="o">.</span><span class="n">action_space</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">observations</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">random_env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">actions</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span>
+
+<span class="c1"># Perform a single action per agent</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="ow">in</span> <span class="n">actions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Agent </span><span class="si">{}</span><span class="s1"> will perform action </span><span class="si">{}</span><span class="s1"> (</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">RailEnvActions</span><span class="o">.</span><span class="n">to_char</span><span class="p">(</span><span class="n">action</span><span class="p">)))</span>
+    <span class="n">next_obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">dones</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">random_env</span><span class="o">.</span><span class="n">step</span><span class="p">({</span><span class="n">handle</span><span class="p">:</span> <span class="n">action</span><span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rewards for each agent: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">all_rewards</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done for each agent: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dones</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Misc info: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">info</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Agent 0 will perform action 0 (B)
+Rewards for each agent: {0: -1.0}
+Done for each agent: {0: False, &#39;__all__&#39;: False}
+Misc info: {&#39;action_required&#39;: {0: True}, &#39;malfunction&#39;: {0: 0}, &#39;speed&#39;: {0: 1.0}, &#39;status&#39;: {0: &lt;RailAgentStatus.READY_TO_DEPART: 0&gt;}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above, we use <code class="docutils literal notranslate"><span class="pre">env.get_agent_handles()</span></code> to enumerate through the handles, and <code class="docutils literal notranslate"><span class="pre">RailEnvActions.to_char</span></code> to get a symbol representing the agent’s direction: <strong>B</strong>ackward, <strong>F</strong>orward, <strong>L</strong>eft, <strong>R</strong>ight or <strong>S</strong>top.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>RailEnvActions<span class="o">??</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Single agent</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Multiple Agents" href="multi-agent.html" />
+    <link rel="prev" title="Reinforcement Learning" href="../rl.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../rl.html">
+   Reinforcement Learning
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/book/tuts/rl/single-agent.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-the-environment">
+   Setting up the environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-the-policy">
+   Setting up the policy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="single-agent">
+<h1>Single agent<a class="headerlink" href="#single-agent" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-goal admonition">
+<p class="admonition-title">Goal</p>
+<p>In this tutorial, you will train a single agent to navigate in Flatland environments using DQN.</p>
+</div>
+<p>We use the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-starter-kit/blob/master/reinforcement_learning/single_agent_training.py"><code class="docutils literal notranslate"><span class="pre">single_agent_training.py</span></code></a> file to train a simple agent using tree observations. This tutorial walks you through this file step by step.</p>
+<div class="section" id="setting-up-the-environment">
+<h2>Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Permalink to this headline">¶</a></h2>
+<p>Before you get started with the training, you will need to have <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch</a> installed. You can install everything you need with conda using the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda env create environment.yml
+</pre></div>
+</div>
+<p>We start by importing the necessary flatland modules:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.envs.rail_env</span> <span class="kn">import</span> <span class="n">RailEnv</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.rail_generators</span> <span class="kn">import</span> <span class="n">sparse_rail_generator</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.schedule_generators</span> <span class="kn">import</span> <span class="n">sparse_schedule_generator</span>
+<span class="kn">from</span> <span class="nn">utils.observation_utils</span> <span class="kn">import</span> <span class="n">normalize_observation</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.observations</span> <span class="kn">import</span> <span class="n">TreeObsForRailEnv</span>
+</pre></div>
+</div>
+<p>For this simple example we want to train on randomly generated levels using the <code class="docutils literal notranslate"><span class="pre">sparse_schedule_generator</span></code>. We use the following parameter for our first experiment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters for the Environment</span>
+<span class="n">n_agents</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x_dim</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">y_dim</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">n_cities</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">max_rails_between_cities</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">max_rails_in_city</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+<p>It is possible to train “speed profiles”, which simulate different kinds of trains with different speeds. In the NeurIPS 2020 challenge, we only consider trains with a speed of <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, so we setup the speed profiles accordingly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Different agent types (trains) with different speeds.</span>
+<span class="n">speed_ration_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mf">1.</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="c1"># 100% of fast passenger train</span>
+    <span class="mf">1.</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># 0% of fast freight train</span>
+    <span class="mf">1.</span> <span class="o">/</span> <span class="mf">3.</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># 0% of slow commuter train</span>
+    <span class="mf">1.</span> <span class="o">/</span> <span class="mf">4.</span><span class="p">:</span> <span class="mf">0.0</span>  <span class="c1"># 0% of slow freight train</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For this experiment we will use the tree observation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We are training an Agent using the Tree Observation with depth 2</span>
+<span class="n">observation_tree_depth</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">observation_builder</span> <span class="o">=</span> <span class="n">TreeObsForRailEnv</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="n">observation_tree_depth</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We then pass it as an argument to the environment constructor:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="n">x_dim</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="n">y_dim</span><span class="p">,</span>
+    <span class="n">rail_generator</span><span class="o">=</span><span class="n">sparse_rail_generator</span><span class="p">(</span>
+        <span class="n">max_num_cities</span><span class="o">=</span><span class="n">n_cities</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
+        <span class="n">grid_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">max_rails_between_cities</span><span class="o">=</span><span class="n">max_rails_between_cities</span><span class="p">,</span>
+        <span class="n">max_rails_in_city</span><span class="o">=</span><span class="n">max_rails_in_city</span>
+    <span class="p">),</span>
+    <span class="n">schedule_generator</span><span class="o">=</span><span class="n">sparse_schedule_generator</span><span class="p">(),</span>
+    <span class="n">number_of_agents</span><span class="o">=</span><span class="n">n_agents</span><span class="p">,</span>
+    <span class="n">obs_builder_object</span><span class="o">=</span><span class="n">tree_observation</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We have now successfully set up the environment for training!</p>
+</div>
+<div class="section" id="setting-up-the-policy">
+<h2>Setting up the policy<a class="headerlink" href="#setting-up-the-policy" title="Permalink to this headline">¶</a></h2>
+<p>To set up an appropriate agent we need the state and action space sizes. We calculate this based on the tree depth and its number of features:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the state size given the depth of the tree observation and the number of features</span>
+<span class="n">n_features_per_node</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">obs_builder</span><span class="o">.</span><span class="n">observation_dim</span>
+<span class="n">n_nodes</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">observation_tree_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">n_nodes</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="n">state_size</span> <span class="o">=</span> <span class="n">n_features_per_node</span> <span class="o">*</span> <span class="n">n_nodes</span>
+
+<span class="c1"># The action space of flatland is 5 discrete actions</span>
+<span class="n">action_size</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>We train the agent with a Double Duelling DQN policy. Here are the relevant publications for this method:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1312.5602">DQN method</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1509.06461">Double DQN method</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1511.06581">Duelling DQN method</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Double Dueling DQN policy</span>
+<span class="n">policy</span> <span class="o">=</span> <span class="n">DDDQNPolicy</span><span class="p">(</span><span class="n">state_size</span><span class="p">,</span> <span class="n">action_size</span><span class="p">,</span> <span class="n">Namespace</span><span class="p">(</span><span class="o">**</span><span class="n">training_parameters</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">single_agent_training.py</span></code> file you will find further bookkeeping variable that we initiate in order to keep track of the training progress. We omit them here for brevity.</p>
+<p>We reshape and normalize each tree observation provided by the environment to facilitate training. To do so, we use the utility functions <code class="docutils literal notranslate"><span class="pre">normalize_observation(observation:</span> <span class="pre">TreeObsForRailEnv.Node,</span> <span class="pre">tree_depth:</span> <span class="pre">int,</span> <span class="pre">observation_radius=0)</span></code> defined <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland-examples/blob/master/utils/observation_utils.py">in the utils folder</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build agent specific observations</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">obs</span><span class="p">[</span><span class="n">a</span><span class="p">]:</span>
+        <span class="n">agent_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize_observation</span><span class="p">(</span><span class="n">obs</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">tree_depth</span><span class="p">,</span> <span class="n">observation_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We now use the normalized <code class="docutils literal notranslate"><span class="pre">agent_obs</span></code> in our training loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">episode_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_episodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># Reset environment</span>
+    <span class="n">obs</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Build agent specific observations</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">obs</span><span class="p">[</span><span class="n">a</span><span class="p">]:</span>
+            <span class="n">agent_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize_observation</span><span class="p">(</span><span class="n">obs</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">tree_depth</span><span class="p">,</span> <span class="n">observation_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+            <span class="n">agent_prev_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Reset score and done</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">env_done</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Run episode</span>
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_steps</span><span class="p">):</span>
+        <span class="c1"># Action</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;action_required&#39;</span><span class="p">][</span><span class="n">a</span><span class="p">]:</span>
+                <span class="c1"># If an action is require, we want to store the obs at that step as well as the action</span>
+                <span class="n">update_values</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">agent_obs</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">)</span>
+                <span class="n">action_prob</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">update_values</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="n">action</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">action_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">a</span><span class="p">:</span> <span class="n">action</span><span class="p">})</span>
+
+        <span class="c1"># Environment step</span>
+        <span class="n">next_obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action_dict</span><span class="p">)</span>
+        <span class="c1"># Update replay buffer and train agent</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()):</span>
+            <span class="c1"># Only update the values when we are done or when an action was taken and thus relevant information is present</span>
+            <span class="k">if</span> <span class="n">update_values</span> <span class="ow">or</span> <span class="n">done</span><span class="p">[</span><span class="n">a</span><span class="p">]:</span>
+                <span class="n">agent</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">agent_prev_obs</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">agent_prev_action</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">all_rewards</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">agent_obs</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">done</span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
+                <span class="n">cumulated_reward</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+
+                <span class="n">agent_prev_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">agent_prev_action</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">action_dict</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">next_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]:</span>
+                <span class="n">agent_obs</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize_observation</span><span class="p">(</span><span class="n">next_obs</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">tree_depth</span><span class="p">,</span> <span class="n">observation_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+            <span class="n">score</span> <span class="o">+=</span> <span class="n">all_rewards</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">/</span> <span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()</span>
+
+        <span class="c1"># Copy observation</span>
+        <span class="k">if</span> <span class="n">done</span><span class="p">[</span><span class="s1">&#39;__all__&#39;</span><span class="p">]:</span>
+            <span class="n">env_done</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">break</span>
+
+    <span class="c1"># Epsilon decay</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">eps_end</span><span class="p">,</span> <span class="n">eps_decay</span> <span class="o">*</span> <span class="n">eps</span><span class="p">)</span>  <span class="c1"># decrease epsilon</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Running the <code class="docutils literal notranslate"><span class="pre">single_agent_training.py</span></code> file trains a simple agent to navigate to any random target within the railway network. After running you should see a learning curve similar to this one:</p>
+<p><img alt="Learning_curve" src="https://i.imgur.com/yVGXpUy.png" /></p>
+<p>and the agent behavior should look like this:</p>
+<p><img alt="Single_Agent_Navigation" src="https://i.imgur.com/t5ULr4L.gif" /></p>
+<p>This is a good start! In the next page, we will see how to train a policy that can handle multiple agents in a more robust way. You will then be able to <strong>submit it to the AMLD 2021 Flatland challenge!</strong></p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../rl.html" title="previous page">Reinforcement Learning</a>
+    <a class='right-next' id="next-link" href="multi-agent.html" title="next page">Multiple Agents</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

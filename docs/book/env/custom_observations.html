@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Custom observations</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Speed profiles" href="speed_profiles.html" />
+    <link rel="prev" title="Environment information" href="environment_information.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tuts/or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tuts/rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tuts/rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tuts/rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/book/env/custom_observations.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-but-useless-observation">
+   Simple (but useless) observation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#single-agent-navigation">
+   Single-agent navigation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-predictors-and-rendering-observations">
+   Using predictors and rendering observations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#going-further">
+   Going further
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="custom-observations">
+<h1>Custom observations<a class="headerlink" href="#custom-observations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>One of the main objectives of the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines">Flatland challenge</a> is to find a suitable observation to solve the problems. Three observations are <a class="reference internal" href="observations.html"><span class="doc std std-doc">provided with Flatland out of the box</span></a>, however it is unlikely that they will be sufficient for this challenge.</p>
+<p>Flatland was built with as much flexibility as possible when it comes to building your custom observations. Whenever an environment needs to compute new observations for each agent, it queries an object derived from the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/flatland/core/env_observation_builder.py#L18"><code class="docutils literal notranslate"><span class="pre">ObservationBuilder</span></code> base class</a>, which takes the current state of the environment and returns the desired observation.</p>
+<p>We will go through 3 examples to explain how to build custom observations:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#simple-but-useless-observation">Simple (but useless) observation</a></p></li>
+<li><p><a class="reference external" href="#single-agent-navigation">Single-agent navigation</a></p></li>
+<li><p><a class="reference external" href="#using-predictors-and-rendering-observations">Using predictors and rendering observations</a></p></li>
+</ul>
+</div>
+<div class="section" id="simple-but-useless-observation">
+<h2>Simple (but useless) observation<a class="headerlink" href="#simple-but-useless-observation" title="Permalink to this headline">¶</a></h2>
+<p>In this first example we implement all the methods necessary for an observation builder to be valid and work with Flatland. This observation builder will simply return a vector of size 5 filled with the ID of the agent. This is a toy example and wouldn’t help an actual agent to learn anything.</p>
+<p>Custom observation builders need to derive from the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/flatland/core/env_observation_builder.py#L18"><code class="docutils literal notranslate"><span class="pre">flatland.core.env_observation_builder.ObservationBuilder</span></code></a> base class and must implement at least two methods, <code class="docutils literal notranslate"><span class="pre">reset(self)</span></code> and <code class="docutils literal notranslate"><span class="pre">get(self,</span> <span class="pre">handle)</span></code>.</p>
+<p>Below is a simple example that returns observation vectors of size 5 featuring only the ID (handle) of the agent whose observation vector is
+being computed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SimpleObs</span><span class="p">(</span><span class="n">ObservationBuilder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simplest observation builder. The object returns observation vectors with 5 identical components,</span>
+<span class="sd">    all equal to the ID of the respective agent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">):</span>
+        <span class="n">observation</span> <span class="o">=</span> <span class="n">handle</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">observation</span>
+</pre></div>
+</div>
+<p>We can pass an instance of our custom observation builder <code class="docutils literal notranslate"><span class="pre">SimpleObs</span></code> to the <code class="docutils literal notranslate"><span class="pre">RailEnv</span></code> creator as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+              <span class="n">rail_generator</span><span class="o">=</span><span class="n">random_rail_generator</span><span class="p">(),</span>
+              <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+              <span class="n">obs_builder_object</span><span class="o">=</span><span class="n">SimpleObs</span><span class="p">())</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Anytime <code class="docutils literal notranslate"><span class="pre">env.reset()</span></code> or <code class="docutils literal notranslate"><span class="pre">env.step()</span></code> is called, the observation builder will return the custom observation of all agents initialized in the env. Not very useful, but it is a start!</p>
+<p>The code sample above is available in <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/examples/custom_observation_example_01_SimpleObs.py"><code class="docutils literal notranslate"><span class="pre">custom_observation_example_01_SimpleObs.py</span></code></a>.</p>
+<p>In the next example, we highlight how to inherit from existing observation builders and how to access internal variables of Flatland.</p>
+</div>
+<div class="section" id="single-agent-navigation">
+<h2>Single-agent navigation<a class="headerlink" href="#single-agent-navigation" title="Permalink to this headline">¶</a></h2>
+<p>Observation builders can inherit from existing concrete subclasses of <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/flatland/core/env_observation_builder.py#L18"><code class="docutils literal notranslate"><span class="pre">ObservationBuilder</span></code></a>. For example, it may be useful to extend the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/flatland/envs/observations.py#L18"><code class="docutils literal notranslate"><span class="pre">TreeObsForRailEnv</span></code></a> observation builder. A feature of this class is that on <code class="docutils literal notranslate"><span class="pre">reset()</span></code>, it pre-computes the lengths of the shortest paths from all cells and orientations to the target of each agent, i.e. a distance map for each agent.</p>
+<p>In this example we exploit these distance maps by implementing an observation builder that shows the current shortest path for each agent
+as a one-hot observation vector of length 3, whose components represent the possible directions an agent can take (<code class="docutils literal notranslate"><span class="pre">LEFT</span></code>, <code class="docutils literal notranslate"><span class="pre">FORWARD</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT</span></code>). All values of the observation vector are set to <code class="docutils literal notranslate"><span class="pre">0</span></code> except for the shortest direction where it is set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>Using this observation with highly engineered features indicating the agent’s shortest path, an agent can then learn to take the corresponding
+action at each time-step; or we could even hardcode the optimal policy. Note that this simple strategy fails when multiple agents are present,
+as each agent would only attempt its greedy solution, which is not usually <a class="reference external" href="https://en.wikipedia.org/wiki/Pareto_efficiency">Pareto-optimal</a> in
+this context.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.envs.observations</span> <span class="kn">import</span> <span class="n">TreeObsForRailEnv</span>
+
+<span class="k">class</span> <span class="nc">SingleAgentNavigationObs</span><span class="p">(</span><span class="n">TreeObsForRailEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    We derive our observation builder from TreeObsForRailEnv, to exploit the existing implementation to compute</span>
+<span class="sd">    the minimum distances from each grid node to each agent&#39;s target.</span>
+
+<span class="sd">    We then build a representation vector with 3 binary components, indicating which of the 3 available directions</span>
+<span class="sd">    for each agent (Left, Forward, Right) lead to the shortest path to its target.</span>
+<span class="sd">    E.g., if taking the Left branch (if available) is the shortest route to the agent&#39;s target, the observation vector</span>
+<span class="sd">    will be [1, 0, 0].</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># We set max_depth=0 in because we only need to look at the current</span>
+        <span class="c1"># position of the agent to decide what direction is shortest.</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Recompute the distance map, if the environment has changed.</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">):</span>
+        <span class="c1"># Here we access agent information from the environment.</span>
+        <span class="c1"># Information from the environment can be accessed but not changed!</span>
+        <span class="n">agent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">agents</span><span class="p">[</span><span class="n">handle</span><span class="p">]</span>
+
+        <span class="n">possible_transitions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">rail</span><span class="o">.</span><span class="n">get_transitions</span><span class="p">(</span><span class="o">*</span><span class="n">agent</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">agent</span><span class="o">.</span><span class="n">direction</span><span class="p">)</span>
+        <span class="n">num_transitions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">possible_transitions</span><span class="p">)</span>
+
+        <span class="c1"># Start from the current orientation, and see which transitions are available;</span>
+        <span class="c1"># organize them as [left, forward, right], relative to the current orientation</span>
+        <span class="c1"># If only one transition is possible, the forward branch is aligned with it.</span>
+        <span class="k">if</span> <span class="n">num_transitions</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">observation</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">min_distances</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">direction</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">agent</span><span class="o">.</span><span class="n">direction</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]:</span>
+                <span class="k">if</span> <span class="n">possible_transitions</span><span class="p">[</span><span class="n">direction</span><span class="p">]:</span>
+                    <span class="n">new_position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_position</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+                    <span class="n">min_distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">distance_map</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="n">handle</span><span class="p">,</span> <span class="n">new_position</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">new_position</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">direction</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">min_distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+
+            <span class="n">observation</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">observation</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">min_distances</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">observation</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+              <span class="n">rail_generator</span><span class="o">=</span><span class="n">complex_rail_generator</span><span class="p">(</span><span class="n">nr_start_goal</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nr_extra</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> \
+                <span class="n">min_dist</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_dist</span><span class="o">=</span><span class="mi">99999</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+              <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+              <span class="n">obs_builder_object</span><span class="o">=</span><span class="n">SingleAgentNavigationObs</span><span class="p">())</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="n">obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">obs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Finally, the following is an example of hard-coded navigation for single agents that achieves optimal single-agent navigation to target, and shows the path taken as an animation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+              <span class="n">rail_generator</span><span class="o">=</span><span class="n">random_rail_generator</span><span class="p">(),</span>
+              <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+              <span class="n">obs_builder_object</span><span class="o">=</span><span class="n">SingleAgentNavigationObs</span><span class="p">())</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="n">obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+
+<span class="n">env_renderer</span> <span class="o">=</span> <span class="n">RenderTool</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+<span class="n">env_renderer</span><span class="o">.</span><span class="n">render_env</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_observations</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">obs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span><span class="n">action</span><span class="p">})</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rewards: &quot;</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="s2">&quot;  [done=&quot;</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="s2">&quot;]&quot;</span><span class="p">)</span>
+
+    <span class="n">env_renderer</span><span class="o">.</span><span class="n">render_env</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_observations</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The code sample above is available in <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/examples/custom_observation_example_02_SingleAgentNavigationObs.py"><code class="docutils literal notranslate"><span class="pre">custom_observation_example_02_SingleAgentNavigationObs.py</span></code></a>.</p>
+</div>
+<div class="section" id="using-predictors-and-rendering-observations">
+<h2>Using predictors and rendering observations<a class="headerlink" href="#using-predictors-and-rendering-observations" title="Permalink to this headline">¶</a></h2>
+<p>Because the re-scheduling task of the <a class="reference external" href="https://www.aicrowd.com/challenges/neurips-2020-flatland-challenge/">Flatland challenge</a> requires some short term planning, we allow the possibility to use custom predictors that help predict upcoming conflicts and help agent solve them in a timely manner.</p>
+<p>The Flatland environment comes with a built-in predictor called <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/flatland/envs/predictions.py#L85"><code class="docutils literal notranslate"><span class="pre">ShortestPathPredictorForRailEnv</span></code></a>, to give you an idea what you can do with these predictors.</p>
+<p>Any custom predictor can be passed to the observation builder and will then be used to build the observation. In this example we will illustrate how an observation builder can be used to detect conflicts using a predictor.</p>
+<p>Note that the toy <code class="docutils literal notranslate"><span class="pre">ObservePredictions</span></code> observation we will create only contains information about potential conflicts and has no feature about the agents’ objectives, so it wouldn’t be sufficient to solve real tasks!</p>
+<p>You can also render your custom observation or predictor information as an overlay on the environment. All you need to do in order to render your custom observation is to populate <code class="docutils literal notranslate"><span class="pre">self.env.dev_obs_dict[handle]</span></code> for every agent (all handles). For the predictor, you can similarly use <code class="docutils literal notranslate"><span class="pre">self.env.dev_pred_dict[handle]</span></code>.</p>
+<p>In contrast to the previous examples, we also implement the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">get_many(self,</span> <span class="pre">handles=None)</span></code> function for this custom observation builder. The reasoning here is that we want to call the predictor only once per <code class="docutils literal notranslate"><span class="pre">env.step()</span></code>. The base implementation of <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">get_many(self,</span> <span class="pre">handles=None)</span></code> will call the <code class="docutils literal notranslate"><span class="pre">get(handle)</span></code> function for all handles, which mean that it normally does not need to be reimplemented, except for cases such as this one.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ObservePredictions</span><span class="p">(</span><span class="n">TreeObsForRailEnv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    We use the provided ShortestPathPredictor to illustrate the usage of predictors in your custom observation.</span>
+
+<span class="sd">    We derive our observation builder from TreeObsForRailEnv, to exploit the existing implementation to compute</span>
+<span class="sd">    the minimum distances from each grid node to each agent&#39;s target.</span>
+
+<span class="sd">    This is necessary so that we can pass the distance map to the ShortestPathPredictor</span>
+
+<span class="sd">    Here we also want to highlight how you can visualize your observation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predictor</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="n">predictor</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Recompute the distance map, if the environment has changed.</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">get_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handles</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Because we do not want to call the predictor seperately for every agent we implement the get_many function</span>
+<span class="sd">        Here we can call the predictor just once for all the agents and use the predictions to generate our observations</span>
+<span class="sd">        :param handles:</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">predictions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">predicted_pos</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+            <span class="n">pos_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">handles</span><span class="p">:</span>
+                <span class="n">pos_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predictions</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">t</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+            <span class="c1"># We transform (x,y) coordinates to a single integer number for simpler comparison</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">predicted_pos</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">t</span><span class="p">:</span> <span class="n">coordinate_to_position</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">pos_list</span><span class="p">)})</span>
+        <span class="n">observations</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Collect all the different observation for all the agents</span>
+        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">handles</span><span class="p">:</span>
+            <span class="n">observations</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">observations</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Lets write a simple observation which just indicates whether or not the own predicted path</span>
+<span class="sd">        overlaps with other predicted paths at any time. This is useless for the task of navigation but might</span>
+<span class="sd">        help when looking for conflicts. A more complex implementation can be found in the TreeObsForRailEnv class</span>
+
+<span class="sd">        Each agent receives an observation of length 10, where each element represents a prediction step and its value</span>
+<span class="sd">        is:</span>
+<span class="sd">         - 0 if no overlap is happening</span>
+<span class="sd">         - 1 if any other paths is crossing the predicted cell</span>
+
+<span class="sd">        :param handle: handled as an index of an agent</span>
+<span class="sd">        :return: Observation of handle</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">observation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="c1"># We track what cells where considered while building the observation and make them accessible for rendering</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        
+        <span class="k">for</span> <span class="n">_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+            <span class="c1"># Check if any of the other prediction overlap with agents own predictions</span>
+            <span class="n">x_coord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictions</span><span class="p">[</span><span class="n">handle</span><span class="p">][</span><span class="n">_idx</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">y_coord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predictions</span><span class="p">[</span><span class="n">handle</span><span class="p">][</span><span class="n">_idx</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+
+            <span class="c1"># We add every observed cell to the observation rendering</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">predicted_pos</span><span class="p">[</span><span class="n">_idx</span><span class="p">][</span><span class="n">handle</span><span class="p">]</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predicted_pos</span><span class="p">[</span><span class="n">_idx</span><span class="p">],</span> <span class="n">handle</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="c1"># We detect if another agent is predicting to pass through the same cell at the same predicted time</span>
+                <span class="n">observation</span><span class="p">[</span><span class="n">handle</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># This variable will be access by the renderer to visualize the observation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">dev_obs_dict</span><span class="p">[</span><span class="n">handle</span><span class="p">]</span> <span class="o">=</span> <span class="n">visited</span>
+
+        <span class="k">return</span> <span class="n">observation</span>
+</pre></div>
+</div>
+<p>We can then use this new observation builder and the renderer to visualize the observation of each agent.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the Predictor</span>
+<span class="n">CustomPredictor</span> <span class="o">=</span> <span class="n">ShortestPathPredictorForRailEnv</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Pass the Predictor to the observation builder</span>
+<span class="n">CustomObsBuilder</span> <span class="o">=</span> <span class="n">ObservePredictions</span><span class="p">(</span><span class="n">CustomPredictor</span><span class="p">)</span>
+
+<span class="c1"># Initiate Environment</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+              <span class="n">rail_generator</span><span class="o">=</span><span class="n">complex_rail_generator</span><span class="p">(</span><span class="n">nr_start_goal</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">nr_extra</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">max_dist</span><span class="o">=</span><span class="mi">99999</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+              <span class="n">number_of_agents</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+              <span class="n">obs_builder_object</span><span class="o">=</span><span class="n">CustomObsBuilder</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+
+<span class="n">obs</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">env_renderer</span> <span class="o">=</span> <span class="n">RenderTool</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+
+<span class="c1"># We render the initial step and show the obsereved cells as colored boxes</span>
+<span class="n">env_renderer</span><span class="o">.</span><span class="n">render_env</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_observations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_predictions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">action_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()):</span>
+        <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">action_dict</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="n">action</span>
+    <span class="n">obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action_dict</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rewards: &quot;</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="s2">&quot;  [done=&quot;</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="s2">&quot;]&quot;</span><span class="p">)</span>
+    <span class="n">env_renderer</span><span class="o">.</span><span class="n">render_env</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_observations</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_predictions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The code sample above is available in <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland/blob/master/examples/custom_observation_example_03_ObservePredictions.py"><code class="docutils literal notranslate"><span class="pre">custom_observation_example_03_ObservePredictions.py</span></code></a>.</p>
+</div>
+<div class="section" id="going-further">
+<h2>Going further<a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h2>
+<p>When building your custom observation builder, you might want to aggregate and define your own features that are different from the raw environment data. The <a class="reference internal" href="environment_information.html"><span class="doc std std-doc">next section</span></a> explains how to access such information.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="environment_information.html" title="previous page">Environment information</a>
+    <a class='right-next' id="next-link" href="speed_profiles.html" title="next page">Speed profiles</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

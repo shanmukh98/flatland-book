@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Operations Research</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/book/tuts/or/or.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dependencies">
+   Dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-code">
+   Example code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brief-overview-of-the-implement-mip-formulation">
+   Brief overview of the implement MIP formulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-agents-must-play-the-flatland-game-according-to-the-following-rules">
+     The agents must play the Flatland game according to the following rules:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-mip-formulation-of-the-rules-can-be-found-in-the-problemdescription-class">
+       The MIP formulation of the rules can be found in the
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ProblemDescription
+        </span>
+       </code>
+       class
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#special-case">
+       Special case
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-information">
+   More information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application-example-code">
+   Application example code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-bring-the-problemdescription-together-with-the-flatland-environment">
+     How to bring the ``ProblemDescription``` together with the Flatland environment:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implement-own-solver">
+     Implement own solver
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results-flatland-challenge-round-1-results">
+     Results: Flatland Challenge - Round 1 results
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#only-one-scenario-can-not-be-solved-without-alternative-paths">
+       Only one scenario can not be solved without alternative paths
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#number-of-agents-vs-calculation-time">
+       Number of Agents vs. Calculation Time
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="operations-research">
+<h1>Operations Research<a class="headerlink" href="#operations-research" title="Permalink to this headline">¶</a></h1>
+<p>The following sections describe how solve a Flatland problem with mixed-integer programming (MIP), CP-SAT solvers
+problems.</p>
+<p>It assumes that the Flatland problem can be solved by using shortes path walks only. That means for each agents the
+system has only to decide whether it can make one step along agent’s shortes path or not. If the problem can be
+solved under this assumption the problem is a simple ordering-problem. No alternative paths are required.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Install OR-Tools for Python</p>
+<p>The fastest way to get Google OR-Tools is to install the Python binary version.
+If you already have Python 2.7 or 3.5+ (and the Python package manager PIP) installed, you can do so as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">user</span> <span class="n">ortools</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>After the installation is complete, you are ready to use the <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code>. Then you need to import a
+problem solver, such as the <code class="docutils literal notranslate"><span class="pre">MIPSolver</span></code> or the <code class="docutils literal notranslate"><span class="pre">CPSATSolver</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">solver.Google_OR_Tools.cp_sat_solver</span> <span class="kn">import</span> <span class="n">CPSATSolver</span>
+<span class="kn">from</span> <span class="nn">solver.Google_OR_Tools.mip_solver</span> <span class="kn">import</span> <span class="n">MIPSolver</span>
+<span class="kn">from</span> <span class="nn">solver.Google_OR_Tools.problem_description</span> <span class="kn">import</span> <span class="n">ProblemDescription</span>
+</pre></div>
+</div>
+<p>Next step is to create or to load from file a RailEnv environment.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once the Flatland RailEnv is available the problem to solve is defined. To solve the Flatland problem you have to
+create a <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> object. The <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> first requires a solver and the reference to
+the RailEnv environment (env). Then you have to define the path the agents travel along. Next you can pass the
+maximum allowed steps for solving the problem (max_agents_steps_allowed).
+This parameter declares how many steps an agent can use to reach the target.
+The 3rd parameter (calculation_time_limit_milliseconds) is an optional parameter.
+It limits the computation time for solving the MIP problem. The passed time must be in in milliseconds.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">ProblemDescription</span><span class="p">(</span><span class="n">solver</span><span class="p">,</span>
+                       <span class="n">env</span><span class="p">,</span>
+                       <span class="n">get_shortest_paths</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">distance_map</span><span class="p">),</span>
+                       <span class="n">max_agents_steps_allowed</span><span class="o">=</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="n">env</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">,</span>
+                       <span class="n">calculation_time_limit_milliseconds</span><span class="o">=</span><span class="mi">120000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>FLATlan main simulation loop gets executed as long as the <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> has at least one replay step left to execute.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">problem</span><span class="o">.</span><span class="n">replay_not_ended</span><span class="p">():</span>
+                <span class="o">...</span>
+                <span class="c1"># execute one step based on the MIPSolver calculated replay_step  </span>
+                <span class="n">action_dict</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">replay_step</span><span class="p">()</span>
+                <span class="n">obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action_dict</span><span class="p">)</span>
+                <span class="o">...</span>
+</pre></div>
+</div>
+<p>To check if the problem was solved just call the <code class="docutils literal notranslate"><span class="pre">ìs_solved()</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sovler</span><span class="o">.</span><span class="n">is_solved</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-code">
+<h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h2>
+<p>Just execute <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">solve_tests.py</span></code> to see the <code class="docutils literal notranslate"><span class="pre">MIPSolver</span></code> in action. If you like to apply the <code class="docutils literal notranslate"><span class="pre">MIPSolver</span></code> to
+many pickel files then you could use the <code class="docutils literal notranslate"><span class="pre">solve_envs.py</span></code> script.</p>
+</div>
+<div class="section" id="brief-overview-of-the-implement-mip-formulation">
+<h2>Brief overview of the implement MIP formulation<a class="headerlink" href="#brief-overview-of-the-implement-mip-formulation" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> assumes that each agents can reach the target by just walking along a fixed path without
+infinitiy blocking any other agents.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> uses the shortest path as the fixed path. See also <code class="docutils literal notranslate"><span class="pre">get_shortest_paths</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flatland.envs.rail_env_utils</span> <span class="kn">import</span> <span class="n">get_shortest_paths</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_shortest_paths</span></code> method returns a ordered list of <code class="docutils literal notranslate"><span class="pre">WalkingElement</span></code>. Each <code class="docutils literal notranslate"><span class="pre">WalkingElement</span></code> has the agent’s
+current
+position and direction stored. And it further contains the information of the transition form agent’s current position
+to the next neighbor cell which is the next step on the shortest path. This information is stored as
+a <code class="docutils literal notranslate"><span class="pre">RailEnvNextAction</span></code> element.</p>
+<div class="section" id="the-agents-must-play-the-flatland-game-according-to-the-following-rules">
+<h3>The agents must play the Flatland game according to the following rules:<a class="headerlink" href="#the-agents-must-play-the-flatland-game-according-to-the-following-rules" title="Permalink to this headline">¶</a></h3>
+<p>(1) The agents have to be at least one time step in a resource.</p>
+<p>(2) An agent can only leave a cell when he immediately enters into another cell.</p>
+<p>(3) An agent can only leave a cell when the next cell is reachable from current cell: Thus the agent can only change
+a cell by using valid transition. The pre-computed path ensures this conditions, this rule will not be tested with
+MIP constraints.</p>
+<p>(4) Each Flatland cell is a resource that can only be assigned exclusively to one agent at same time.</p>
+<p>(5) Agent can not start before first simulation step.</p>
+<p>(6) Agents must be at their destination before the maximal simulation steps are passed.</p>
+<div class="section" id="the-mip-formulation-of-the-rules-can-be-found-in-the-problemdescription-class">
+<h4>The MIP formulation of the rules can be found in the <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> class<a class="headerlink" href="#the-mip-formulation-of-the-rules-can-be-found-in-the-problemdescription-class" title="Permalink to this headline">¶</a></h4>
+<p>Rule 1: <code class="docutils literal notranslate"><span class="pre">_implement_agent_resource</span></code>
+<img alt="min_travel_time_rule" src="../../../_images/min_travel_time_rule.png" />
+Flatland supports multi-speed such that each agent can have it’s own speed (<code class="docutils literal notranslate"><span class="pre">agent.speed_data['speed']</span></code>). The
+<code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> sets the <code class="docutils literal notranslate"><span class="pre">minimal</span> <span class="pre">travel</span> <span class="pre">time=np.ceil(1/speed)</span></code>.</p>
+<p>Rule 2  and rule 3 <code class="docutils literal notranslate"><span class="pre">_implement_agent_path_edge</span></code> by connecting the right resource chain only one equation is required
+to satisfy the rule 2 and 3.
+<img alt="resource_chain_rule" src="../../../_images/resource_chain_rule.png" /></p>
+<p>Rule 4: <code class="docutils literal notranslate"><span class="pre">_implement_agents_ordering_selection</span></code>
+<img alt="agent_ordering_rule" src="../../../_images/agent_ordering_rule.png" />
+One time step is required because Flatland updates all agents at same time step.</p>
+<p>The variables <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code> controls the ordering of  <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">a</span></code> and   <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">b</span></code> at resource <code class="docutils literal notranslate"><span class="pre">Rx</span></code>.<br />
+If the <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code> is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> then <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">a</span></code> allocates resource <code class="docutils literal notranslate"><span class="pre">Rx</span></code>  before <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">b</span></code>.</p>
+<p>The variables <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code> controls as well the ordering of  <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">a</span></code> and   <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">b</span></code> at resource <code class="docutils literal notranslate"><span class="pre">Rx</span></code>.<br />
+If the <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code> is set to <code class="docutils literal notranslate"><span class="pre">1</span></code> then <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">b</span></code> allocates resource <code class="docutils literal notranslate"><span class="pre">Rx</span></code>  before <code class="docutils literal notranslate"><span class="pre">Agent</span> <span class="pre">a</span></code>.</p>
+<p>As the sum of <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code> must be equal to <code class="docutils literal notranslate"><span class="pre">1</span></code> and as both variable only can hold <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code> so
+only <code class="docutils literal notranslate"><span class="pre">V</span>&#160; <span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code> or <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">b</span> <span class="pre">&lt;</span> <span class="pre">a</span></code> can be set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.
+This result in that only one of the first two equation will be used. So variables <code class="docutils literal notranslate"><span class="pre">V...</span></code> is a switching variable.
+<code class="docutils literal notranslate"><span class="pre">V...</span></code> can enable/disable one equation. The constant valued variable <code class="docutils literal notranslate"><span class="pre">S</span></code> is used to make one equation
+fully satisfied without taking in account the other terms.</p>
+<p>Special case: If agents don’t have speed = 1.0 which means the minimal travel time for one resource is longer than one
+simulation step. Otherwise one agent tries to enter the conflicting resource to early and this leads into a synchronisation
+issue where the solution is no longer a Flatland solution.</p>
+<p>Rule 5: <code class="docutils literal notranslate"><span class="pre">_implement_agent_earliest_start_time</span></code>
+<img alt="first_resource.png" src="../../../_images/first_resource.png" /></p>
+<p>Rule 6: <code class="docutils literal notranslate"><span class="pre">_implement_agent_latest_arrival_time</span></code>
+<img alt="target_resource" src="../../../_images/target_resource.png" /></p>
+</div>
+<div class="section" id="special-case">
+<h4>Special case<a class="headerlink" href="#special-case" title="Permalink to this headline">¶</a></h4>
+<p>If multiple agents start at the same position. The <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> assume that the agent have to be ordered along
+the agents handle (index). Have a look into <code class="docutils literal notranslate"><span class="pre">_implement_agents_force_index_sort</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="more-information">
+<h2>More information<a class="headerlink" href="#more-information" title="Permalink to this headline">¶</a></h2>
+<p>Example of a mixed-integer programming (MIP) with Google OR-Tools can be found following the
+<a class="reference external" href="https://developers.google.com/optimization/mip/integer_opt#declare-the-solver">link to the how-to</a>.</p>
+</div>
+<div class="section" id="application-example-code">
+<h2>Application example code<a class="headerlink" href="#application-example-code" title="Permalink to this headline">¶</a></h2>
+<p>You have to import Flatland and the <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> before you can start writting your own application.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.rail_env</span> <span class="kn">import</span> <span class="n">RailEnv</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.rail_generators</span> <span class="kn">import</span> <span class="n">complex_rail_generator</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.schedule_generators</span> <span class="kn">import</span> <span class="n">complex_schedule_generator</span>
+<span class="kn">from</span> <span class="nn">flatland.utils.rendertools</span> <span class="kn">import</span> <span class="n">RenderTool</span><span class="p">,</span> <span class="n">AgentRenderVariant</span>
+<span class="kn">from</span> <span class="nn">flatland.envs.rail_env_shortest_paths</span> <span class="kn">import</span> <span class="n">get_shortest_paths</span>
+<span class="o">...</span>
+<span class="c1"># ----------------------------- Flatland -----------------------------------------------------------</span>
+<span class="kn">from</span> <span class="nn">solver.Google_OR_Tools.cp_sat_solver</span> <span class="kn">import</span> <span class="n">CPSATSolver</span>
+<span class="kn">from</span> <span class="nn">solver.Google_OR_Tools.mip_solver</span> <span class="kn">import</span> <span class="n">MIPSolver</span>
+<span class="kn">from</span> <span class="nn">solver.Google_OR_Tools.problem_description</span> <span class="kn">import</span> <span class="n">ProblemDescription</span>
+
+</pre></div>
+</div>
+<p>To generate a new RailEnv with multi-speed you can use the following code snipped. The demostration application uses
+the complex_rail_generator and the complex_schedule_generator as topology and Flatland problem generator.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_multi_speed</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+    <span class="n">max_speed_time_factor</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">speeds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.125</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i_agent</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">get_num_agents</span><span class="p">()):</span>
+        <span class="n">speed</span> <span class="o">=</span> <span class="n">speeds</span><span class="p">[</span><span class="n">i_agent</span> <span class="o">%</span> <span class="mi">4</span><span class="p">]</span>
+        <span class="n">env</span><span class="o">.</span><span class="n">agents</span><span class="p">[</span><span class="n">i_agent</span><span class="p">]</span><span class="o">.</span><span class="n">speed_data</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">speed</span>
+
+        <span class="n">max_speed_time_factor</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_speed_time_factor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">speed</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">max_speed_time_factor</span>
+
+
+<span class="k">def</span> <span class="nf">create_flatland_environment</span><span class="p">(</span><span class="n">number_of_agents</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">seed_value</span><span class="p">):</span>
+    <span class="n">rail_generator</span> <span class="o">=</span> <span class="n">complex_rail_generator</span><span class="p">(</span><span class="n">nr_start_goal</span><span class="o">=</span><span class="n">number_of_agents</span><span class="p">,</span> <span class="n">nr_extra</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_dist</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                            <span class="n">max_dist</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed_value</span><span class="p">)</span>
+    <span class="n">schedule_generator</span> <span class="o">=</span> <span class="n">complex_schedule_generator</span><span class="p">()</span>
+
+    <span class="n">environment</span> <span class="o">=</span> <span class="n">RailEnv</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+                          <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+                          <span class="n">rail_generator</span><span class="o">=</span><span class="n">rail_generator</span><span class="p">,</span>
+                          <span class="n">number_of_agents</span><span class="o">=</span><span class="n">number_of_agents</span><span class="p">,</span>
+                          <span class="n">schedule_generator</span><span class="o">=</span><span class="n">schedule_generator</span>
+                          <span class="p">)</span>
+
+    <span class="n">max_speed_time_factor</span> <span class="o">=</span> <span class="n">generate_multi_speed</span><span class="p">(</span><span class="n">environment</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">environment</span><span class="p">,</span> <span class="n">max_speed_time_factor</span>
+</pre></div>
+</div>
+<div class="section" id="how-to-bring-the-problemdescription-together-with-the-flatland-environment">
+<h3>How to bring the ``ProblemDescription``` together with the Flatland environment:<a class="headerlink" href="#how-to-bring-the-problemdescription-together-with-the-flatland-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span> 
+
+<span class="c1"># load files</span>
+<span class="n">env</span><span class="p">,</span> <span class="n">max_speed_time_factor</span> <span class="o">=</span> <span class="n">create_flatland_environment</span><span class="p">(</span><span class="n">number_of_agents</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">seed_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="o">...</span>
+
+<span class="n">solver</span> <span class="o">=</span> <span class="n">MIPSolver</span><span class="p">()</span> 
+
+<span class="n">problem</span> <span class="o">=</span> <span class="n">ProblemDescription</span><span class="p">(</span><span class="n">solver</span><span class="p">,</span>
+                       <span class="n">env</span><span class="p">,</span>
+                       <span class="n">get_shortest_paths</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">distance_map</span><span class="p">),</span>
+                       <span class="n">max_agents_steps_allowed</span><span class="o">=</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="n">env</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">max_speed_time_factor</span><span class="p">,</span>
+                       <span class="n">calculation_time_limit_milliseconds</span><span class="o">=</span><span class="mi">360000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once you have to MIPSolver and the Flatland environment, which describes in general a Flatland problem you are ready
+to replay the calculated solution.</p>
+<p>You might test to solve the problem defined in <code class="docutils literal notranslate"><span class="pre">ProblemDescription</span></code> with MIP use the <code class="docutils literal notranslate"><span class="pre">MIPSolver</span></code>. You can alos
+use the <code class="docutils literal notranslate"><span class="pre">CPSATSolver</span></code> to check the satisfiability.</p>
+<p>Now you can just replay the calculated solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">problem</span><span class="o">.</span><span class="n">replay_not_ended</span><span class="p">():</span>
+    <span class="n">obs</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">problem</span><span class="o">.</span><span class="n">replay_step</span><span class="p">())</span>
+    <span class="o">...</span> 
+    <span class="c1"># you might write out the replay steps or you just render one step </span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="implement-own-solver">
+<h3>Implement own solver<a class="headerlink" href="#implement-own-solver" title="Permalink to this headline">¶</a></h3>
+<p>To implement you own solver you just need to make the <code class="docutils literal notranslate"><span class="pre">AbstractSolver</span></code> concrete. You have to implement the
+interface methods.</p>
+</div>
+<div class="section" id="results-flatland-challenge-round-1-results">
+<h3>Results: Flatland Challenge - Round 1 results<a class="headerlink" href="#results-flatland-challenge-round-1-results" title="Permalink to this headline">¶</a></h3>
+<p><span class="xref myst">solve_envs_challenge_01_baseline.csv</span></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Measure</p></th>
+<th class="text-align:right head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Fraction of done-agents</p></td>
+<td class="text-align:right"><p>0.999</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Mean Reward</p></td>
+<td class="text-align:right"><p>-1023.928</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p></p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Feasible solution found</p></td>
+<td class="text-align:right"><p>999</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>No feasible solution</p></td>
+<td class="text-align:right"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p></p></td>
+<td class="text-align:right"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Min calculation time</p></td>
+<td class="text-align:right"><p>2ms</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Mean calculation time</p></td>
+<td class="text-align:right"><p>116s</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Median calculation time</p></td>
+<td class="text-align:right"><p>352s</p></td>
+</tr>
+</tbody>
+</table>
+<p>*) Maximal calculation time was set to 3600.</p>
+<div class="section" id="only-one-scenario-can-not-be-solved-without-alternative-paths">
+<h4>Only one scenario can not be solved without alternative paths<a class="headerlink" href="#only-one-scenario-can-not-be-solved-without-alternative-paths" title="Permalink to this headline">¶</a></h4>
+<p>The scenario/level <code class="docutils literal notranslate"><span class="pre">./Envs/Test_9/Level_92.pkl</span></code> can not be solved without using alternative to shortest path. The
+solver
+answers
+with
+<code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">solution</span> <span class="pre">exists.</span> <span class="pre">MPSolverInterface::result_status_</span> <span class="pre">=</span> <span class="pre">MPSOLVER_INFEASIBLE</span></code> solution found.</p>
+</div>
+<div class="section" id="number-of-agents-vs-calculation-time">
+<h4>Number of Agents vs. Calculation Time<a class="headerlink" href="#number-of-agents-vs-calculation-time" title="Permalink to this headline">¶</a></h4>
+<p>The scaling of the x-axis (calculation time) is chosen logarithmically. The y-axis shows the number of agents.
+The poor scaling behavior of the current <code class="docutils literal notranslate"><span class="pre">MIPSolver</span></code> can be get out of the chart. (The number of agents determine
+the expected calculation time very well by using the formula <code class="docutils literal notranslate"><span class="pre">calc_time</span> <span class="pre">~</span> <span class="pre">x</span> <span class="pre">**</span> <span class="pre">num_agents</span></code>) or in words
+exponential increase.</p>
+<p><img alt="Number of Agents versus Calculation Time" src="../../../_images/results_MIP_challenge_01.png" /></p>
+<p>The whole program can be found in <code class="docutils literal notranslate"><span class="pre">solve_test.py</span></code></p>
+<p>Author: Adrian Egli</p>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

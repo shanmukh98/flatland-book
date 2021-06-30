@@ -1,0 +1,699 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Imitation Learning Training</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/tuts/or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/tuts/rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/research/baselines/imitation_learning.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-idea">
+   💡 The idea
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files-and-usage">
+   🗂️ Files and usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parameters">
+     🎛️ Parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     🚂 Training
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#marwil">
+     MARWIL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ape-x-imitation-learning-il">
+     APE-X Imitation Learning (IL)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model">
+     🧠 Model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation-details">
+   📦 Implementation Details
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generating-expert-demonstrations">
+     Generating Expert Demonstrations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-model-with-expert-demonstrations">
+     Run Model with Expert Demonstrations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   📈 Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#marwil-results">
+     MARWIL Results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ape-x-il-results">
+     APE-X IL Results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links">
+   🔗 Links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#credits">
+   🌟 Credits
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="imitation-learning-training">
+<h1>Imitation Learning Training<a class="headerlink" href="#imitation-learning-training" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-il-rl admonition">
+<p class="admonition-title">IL;RL</p>
+<p>We consider 2 broad Imitation Learning approaches as per below</p>
+<ul class="simple">
+<li><p>Pure Imitation Learning</p>
+<ul>
+<li><p>This step involves training in a purely offline process via stored experiences</p></li>
+<li><p>This is implemented using the RLLib supported <a class="reference external" href="http://papers.nips.cc/paper/7866-exponentially-weighted-imitation-learning-for-batched-historical-data">MARWIL</a> algorithm which is an on-policy algorithm.</p></li>
+</ul>
+</li>
+<li><p>Hybrid or Mixed Learning</p>
+<ul>
+<li><p>This step involves training in both an offline process via stored experiences and actual environment simulation experience. This is implemented using the off-policy <a class="reference external" href="https://arxiv.org/abs/1803.00933">APE-X DQN</a> algorithm in RLLib with the stored experiences sampled from the replay buffer based on a user configurable ratio of simulation to expert data.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-idea">
+<h2>💡 The idea<a class="headerlink" href="#the-idea" title="Permalink to this headline">¶</a></h2>
+<p>The Flatland environment presents challenges to learning algorithms with respect to regard the organization the agent’s behavior when faced with the presence of other agents as well as with sparse and delayed rewards. Operation Research (OR) based solutions which follow rule-based  and planning approaches have shown to work well in this environment. We propose a hybrid approach using these succesful OR solutions to bootstrap the reinforcement learning process and possibly further improve them. This trained reinforcement learning based solution can be used in larger environments where scalability is required.</p>
+</div>
+<div class="section" id="files-and-usage">
+<h2>🗂️ Files and usage<a class="headerlink" href="#files-and-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="parameters">
+<h3>🎛️ Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>The parameters for MARWIL can be configured with the following parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">beta</span></code>: This ranges from <code class="docutils literal notranslate"><span class="pre">0-1</span></code> with a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> represents a vanilla imitation learning.</p></li>
+</ul>
+<p>The parameters for APEX based Imitation Learning can be configured with the following parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;/tmp/flatland-out&quot;</span></code>: This ranges from <code class="docutils literal notranslate"><span class="pre">0-1</span></code> with a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> represents no imitation learning.This represents the porportion of imitation samples.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampler</span></code>: This ranges from <code class="docutils literal notranslate"><span class="pre">0-1</span></code> with a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> represents <code class="docutils literal notranslate"><span class="pre">100%</span></code> Imitation Learning. This represents the porportion of simulation samples.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loss</span></code>: Possible values are dqfd,ce,kl which represents the loss based on <a class="reference external" href="https://arxiv.org/abs/1704.03732">DQfD</a> , cross entropy and kl divergence respectively</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda1</span></code>: Weight applied for the APE-X DQN loss in calculating the total loss</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda1</span></code>: Weight applied for the Imitation loss in calculating the total loss</p></li>
+</ul>
+</div>
+<div class="section" id="training">
+<h3>🚂 Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="marwil">
+<h3>MARWIL<a class="headerlink" href="#marwil" title="Permalink to this headline">¶</a></h3>
+<p>Example configuration: <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/master/baselines/imitation_learning_tree_obs/marwil_tree_obs_all_beta.yaml"><code class="docutils literal notranslate"><span class="pre">neurips2020-flatland-baselines/baselines/imitation_learning_tree_obs/marwil_tree_obs_all_beta.yaml</span></code></a>.</p>
+<p>Run it with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python ./train.py -f baselines/imitation_learning_tree_obs/marwil_tree_obs_all_beta.yaml
+</pre></div>
+</div>
+</div>
+<div class="section" id="ape-x-imitation-learning-il">
+<h3>APE-X Imitation Learning (IL)<a class="headerlink" href="#ape-x-imitation-learning-il" title="Permalink to this headline">¶</a></h3>
+<p>Example configuration: <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/master/baselines/imitation_learning_tree_obs/apex_il_tree_obs_all.yaml"><code class="docutils literal notranslate"><span class="pre">neurips2020-flatland-baselines/baselines/imitation_learning_tree_obs/apex_il_tree_obs_all.yaml</span></code></a>.</p>
+<p>Run it with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python ./train.py -f baselines/imitation_learning_tree_obs/apex_il_tree_obs_all.yaml
+</pre></div>
+</div>
+</div>
+<div class="section" id="model">
+<h3>🧠 Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<p>We use a standard fully connected neural network model for both the MARWIL and APE-X IL.</p>
+<p>The model with the custom loss used in APE-X IL is implemented in <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/master/models/custom_loss_model.py"><code class="docutils literal notranslate"><span class="pre">neurips2020-flatland-baselines/models/custom_loss_model.py</span></code></a>.</p>
+</div>
+</div>
+<div class="section" id="implementation-details">
+<h2>📦 Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generating-expert-demonstrations">
+<h3>Generating Expert Demonstrations<a class="headerlink" href="#generating-expert-demonstrations" title="Permalink to this headline">¶</a></h3>
+<p>We have provided a set of expert demonstration in this <a class="reference external" href="https://www.aicrowd.com/challenges/neurips-2020-flatland-challenge/dataset_files">location</a>. Some of the results presented below were based on the  file <code class="docutils literal notranslate"><span class="pre">expert-demonstrations.tgz</span></code>. This expert demonstrations file has the saved version of the environment and the corresponding expert actions.</p>
+<p>Next we convert them to a rllib compatible format. More details can be found <a class="reference external" href="https://docs.ray.io/en/releases-0.8.5/rllib-offline.html">here</a></p>
+<p>We follow the below steps to generate our list of expert demonstration</p>
+<ul class="simple">
+<li><p>Download and extract the expert demonstrations file in the location <code class="docutils literal notranslate"><span class="pre">neurips2020-flatland-baselines/imitation_learning/convert_demonstration</span></code></p></li>
+<li><p>Now run the <code class="docutils literal notranslate"><span class="pre">saving_experiences.py</span></code> to generate the expert demonstrations in rllib format (<code class="docutils literal notranslate"><span class="pre">*.json</span></code>)</p></li>
+<li><p>Copy the generated experiences to the location <code class="docutils literal notranslate"><span class="pre">\tmp\flatland-out</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="run-model-with-expert-demonstrations">
+<h3>Run Model with Expert Demonstrations<a class="headerlink" href="#run-model-with-expert-demonstrations" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>custom_loss_model</strong> model file contains the code basis for all concepts needed for Imitation Loss implementation.</p>
+<p>For the training process refer to the <a class="reference external" href="#training">training</a> section.</p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>📈 Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Results for MARWIL and APEX based Imitation Learning</p>
+<div class="section" id="marwil-results">
+<h3>MARWIL Results<a class="headerlink" href="#marwil-results" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://app.wandb.ai/masterscrat/flatland/reports/MARWIL-Tree-Observation-Runs--VmlldzoxNjM1MzY">Full metrics of the training runs can be found in the <em>Weights &amp; Biases</em> report</a></p>
+</div>
+<div class="section" id="ape-x-il-results">
+<h3>APE-X IL Results<a class="headerlink" href="#ape-x-il-results" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://app.wandb.ai/masterscrat/flatland/reports/APE-X-IL--VmlldzoxNjM2MTg">Full metrics of the training runs can be found in the <em>Weights &amp; Biases</em> report</a></p>
+<p>The results show that a pure Imitation Learning can help push the mean completion to more than <code class="docutils literal notranslate"><span class="pre">50%</span></code> on the sparse, small flatand environment comparable results. Combining both the expert demonstrations along with environment training using the fast <code class="docutils literal notranslate"><span class="pre">APE-X</span></code> achieves a mean completion rate comparable to the corresponding pure Reinforcement Learning(RL) runs. A notable observation is that Imitation Learning algorithms show a better minimum completion rate.</p>
+</div>
+</div>
+<div class="section" id="links">
+<h2>🔗 Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1704.03732">DQfD</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1805.11593.pdf">Ape-X DQfD</a></p></li>
+<li><p><a class="reference external" href="http://papers.nips.cc/paper/7866-exponentially-weighted-imitation-learning-for-batched-historical-data.pdf">MARWIL</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1803.00933">Ape-X Paper – Distributed Prioritized Experience Replay (Horgan et al.)</a></p></li>
+</ul>
+</div>
+<div class="section" id="credits">
+<h2>🌟 Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><span class="xref myst">Nilabha Bhattacharya</span></p></li>
+<li><p><span class="xref myst">Jeremy Watson</span></p></li>
+<li><p><span class="xref myst">Florian Laurent</span></p></li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

@@ -1,0 +1,1240 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Local conflict prediction observation fc-net experiments</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/tuts/or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/tuts/rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/research/baselines/local_conflict_obs_fc_net.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#observation">
+   Observation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agent-specific-observations">
+     Agent Specific Observations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shortest-and-alternate-observation-vector">
+     Shortest and Alternate Observation Vector
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conflict-prediction-matrix">
+     Conflict Prediction Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#target-and-extra-distance">
+     Target and Extra Distance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agent-conflict-count-matrix">
+     Agent Conflict Count Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agent-conflict-step-matrix">
+     Agent Conflict Step Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#determining-the-most-conflicting-pair-of-agents">
+     Determining the most conflicting pair of agents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conflicting-agent-observations">
+     Conflicting agent observations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-agents-step-matrix">
+     Local agents step matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-agents-count-matrix">
+     Local agents count matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agent-conflict-average-step">
+     Agent Conflict Average Step
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#total-observations-dimensions">
+     Total Observations Dimensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#method">
+     Method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plots">
+   Plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="local-conflict-prediction-observation-fc-net-experiments">
+<h1>Local conflict prediction observation fc-net experiments<a class="headerlink" href="#local-conflict-prediction-observation-fc-net-experiments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="observation">
+<h2>Observation<a class="headerlink" href="#observation" title="Permalink to this headline">¶</a></h2>
+<p>We created a set of custom observations as explained in detail below in the sections. The observations work by capturing the agent data from the most conflicting <code class="docutils literal notranslate"><span class="pre">n_local</span> <span class="pre">=</span> <span class="pre">5</span></code> agents and the conflict prediction related information.</p>
+<div class="section" id="agent-specific-observations">
+<h3>Agent Specific Observations<a class="headerlink" href="#agent-specific-observations" title="Permalink to this headline">¶</a></h3>
+<p>First we look at the simple agent observations <br>
+There are some general observations we provide to the agent</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">malfunction</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">malfunction_data</span><span class="p">[</span><span class="s1">&#39;malfunction&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">max_distance</span><span class="p">,</span>
+<span class="n">malfunction_rate</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">malfunction_data</span><span class="p">[</span><span class="s1">&#39;malfunction_rate&#39;</span><span class="p">],</span>
+<span class="n">next_malfunction</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">malfunction_data</span><span class="p">[</span><span class="s1">&#39;next_malfunction&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">max_distance</span><span class="p">,</span>
+<span class="n">nr_malfunctions</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">malfunction_data</span><span class="p">[</span><span class="s1">&#39;nr_malfunctions&#39;</span><span class="p">],</span>
+<span class="n">speed</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">speed_data</span><span class="p">[</span><span class="s1">&#39;speed&#39;</span><span class="p">],</span>
+<span class="n">position_fraction</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">speed_data</span><span class="p">[</span><span class="s1">&#39;position_fraction&#39;</span><span class="p">],</span>
+<span class="n">transition_action_on_cellexit</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">speed_data</span><span class="p">[</span><span class="s1">&#39;transition_action_on_cellexit&#39;</span><span class="p">],</span>
+<span class="n">num_transitions</span><span class="o">=</span><span class="n">num_transitions</span><span class="p">,</span>
+<span class="n">moving</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">moving</span><span class="p">,</span>
+<span class="n">status</span><span class="o">=</span><span class="n">agent</span><span class="o">.</span><span class="n">status</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shortest-and-alternate-observation-vector">
+<h3>Shortest and Alternate Observation Vector<a class="headerlink" href="#shortest-and-alternate-observation-vector" title="Permalink to this headline">¶</a></h3>
+<p>We use the shortest path observation
+observation_shortest and observation_next_shortest represent a 3-size vector for the actions L,F and R.
+If no alternate path exists both of the values would be same
+E.g. observation_shortest = [0, 1, 0] refers to Forward (F) shortest path
+observation_next_shortest = [0, 0, 1] refers to taking action Right (R) for an alternate route</p>
+</div>
+<div class="section" id="conflict-prediction-matrix">
+<h3>Conflict Prediction Matrix<a class="headerlink" href="#conflict-prediction-matrix" title="Permalink to this headline">¶</a></h3>
+<p>When we analyse agents, we can resolve agent conflicts based on the following criteria</p>
+<ul class="simple">
+<li><p>Distance to Target and Extra Distance to be travelled in case of any alternate path</p></li>
+<li><p>Steps after which first conflict happens</p></li>
+<li><p>Number of agents with which an agent has conflicts with</p></li>
+</ul>
+</div>
+<div class="section" id="target-and-extra-distance">
+<h3>Target and Extra Distance<a class="headerlink" href="#target-and-extra-distance" title="Permalink to this headline">¶</a></h3>
+<p>This is the vector for the distance from target to the shortest path and the alterante path if it exists
+Extra Distance is the extra distance to target in case of an alternate route. All these variables are normalised by max_distance which is calculated as the total of width and height.</p>
+</div>
+<div class="section" id="agent-conflict-count-matrix">
+<h3>Agent Conflict Count Matrix<a class="headerlink" href="#agent-conflict-count-matrix" title="Permalink to this headline">¶</a></h3>
+<p>We calculate the conflicts with the agents upto a future number of steps or <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> which is currently set at 30. We only show the first 10 steps for brevity. <br>
+We show an example with 7 agents to show the conflict count matrix <br></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Steps/AgentNo</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p><br> We see that agent 0 and 1 are conflicting after step 7 and 8 (We increase the steps by 1 as python indexing starts from 0). Similarly agents 1 and 3 are conflicting after step 9. Note that there maybe more than one pair of agents conflicting in which case the value in each cell can range from 0-6<br>
+<br> We further normalise the agent count by dividing with the number of agents <br></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Steps/AgentNo</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>0.1428</p></td>
+<td><p>0.1428</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>0.1428</p></td>
+<td><p>0.1428</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0</p></td>
+<td><p>0.1428</p></td>
+<td><p>0</p></td>
+<td><p>0.1428</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>This is represented by the variable <code class="docutils literal notranslate"><span class="pre">agent_conflicts_count_path</span></code> in the implementation</p>
+</div>
+<div class="section" id="agent-conflict-step-matrix">
+<h3>Agent Conflict Step Matrix<a class="headerlink" href="#agent-conflict-step-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Taking the above example, we can calculate the steps after which conflicts occurs
+<br>
+We calculate at each future step what is the minimum of steps after which conflict occurs between a pair of agents.
+We show a sample step conflict matrix at step 30.
+<br></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>AgentNo</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>7</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>9</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>There would be a similar matrix for every step. Note here that we only record the step at which the first conflict occurs. Since agents 0 and 1 conflict at steps 7 and 8, we only take the first conflict i.e 7.
+The matrix values should be symmetric.
+<br> we normalise by dividing by the total number of <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> <br></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>AgentNo</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0.233</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.233</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>0.3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>This is represented by the variable <code class="docutils literal notranslate"><span class="pre">agent_conflicts_step_path</span></code> in the implementation</p>
+</div>
+<div class="section" id="determining-the-most-conflicting-pair-of-agents">
+<h3>Determining the most conflicting pair of agents<a class="headerlink" href="#determining-the-most-conflicting-pair-of-agents" title="Permalink to this headline">¶</a></h3>
+<p>We use a parameter <code class="docutils literal notranslate"><span class="pre">n_local</span></code> currently defaulted to 5 to find the most conflicting pair of 5 agents. Given a agent, we need to identify these 4 other agents which is done by looking at the Agent Conflict Step Matrix</p>
+<p><br> First we identify a cut off number of steps to check the conflicts.
+We use the below logic which is normalised based on the grid and agent sizes, subject to a ceiling based on <code class="docutils literal notranslate"><span class="pre">max_depth</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">avg_dim</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_dim</span> <span class="o">*</span> <span class="n">y_dim</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_local</span> <span class="o">*</span> <span class="n">avg_dim</span> <span class="o">/</span> <span class="n">n_agents</span><span class="p">)</span>
+
+<span class="n">agent_conflict_steps</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>At this <code class="docutils literal notranslate"><span class="pre">agent_conflict_steps</span></code>, we look at the agent step conflict matrix to determine the 4 other agents.
+In the example shown below, for agent 1, the most conflicting 4 other agents would be 0 and 3 by choosing the least values in the matrix (0 represents immediate conflict and 1 represents no conflict) The other 2 agents are taken randomly as of now as there are only 2 conflicts after <code class="docutils literal notranslate"><span class="pre">agent_conflict_steps</span></code></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>AgentNo</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0.233</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="conflicting-agent-observations">
+<h3>Conflicting agent observations<a class="headerlink" href="#conflicting-agent-observations" title="Permalink to this headline">¶</a></h3>
+<p>After choosing the conflict agents, we also obtain the <a class="reference external" href="#agent-specific-observations">general observations</a> for each of these identified <em>local</em> agents.<br />
+Similarly We also get the local agent observations for the <a class="reference external" href="#shortest-and-alternate-observation-vector">shortest and alternate path</a>, <a class="reference external" href="#target-and-extra-distance">Target and Extra Distance</a></p>
+</div>
+<div class="section" id="local-agents-step-matrix">
+<h3>Local agents step matrix<a class="headerlink" href="#local-agents-step-matrix" title="Permalink to this headline">¶</a></h3>
+<p>We use the first <strong>3</strong> steps for the  selected <code class="docutils literal notranslate"><span class="pre">n_local</span></code> agents in the <code class="docutils literal notranslate"><span class="pre">agent_conflicts_step_path</span></code>
+This can be got by extracting the matrix and obtaining the values for the respective pairs of agents<br />
+For getting the first step or Step #0, we do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">agent_conflicts_step_path</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="n">ls_other_local_agents</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the currently selected agent and <code class="docutils literal notranslate"><span class="pre">ls_other_local_agents</span></code> are its 4 most conflicting agents<br />
+We get a set of <code class="docutils literal notranslate"><span class="pre">n_local-1</span></code> for each step leading to a total of <code class="docutils literal notranslate"><span class="pre">3*(n_local-1)</span></code></p>
+</div>
+<div class="section" id="local-agents-count-matrix">
+<h3>Local agents count matrix<a class="headerlink" href="#local-agents-count-matrix" title="Permalink to this headline">¶</a></h3>
+<p>We use the first <strong>3</strong> steps for the  selected <code class="docutils literal notranslate"><span class="pre">n_local</span></code> agents in the <code class="docutils literal notranslate"><span class="pre">agent_conflicts_step_path</span></code>
+This can be got by extracting the matrix and obtaining the values for the respective pairs of agents<br />
+For getting the first step or Step #0, we do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">agent_conflicts_count_path</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">ls_local_agents</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">ls_local_agents</span></code> are the current agent  and its 4 most conflicting agents
+We get a set of <code class="docutils literal notranslate"><span class="pre">n_local</span></code> for each step leading to a total of <code class="docutils literal notranslate"><span class="pre">3*n_local</span></code></p>
+</div>
+<div class="section" id="agent-conflict-average-step">
+<h3>Agent Conflict Average Step<a class="headerlink" href="#agent-conflict-average-step" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">agent_conflicts_avg_step_count</span></code> is calculated by adding the step conflicts after <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> steps.
+The values are added for each agent, represented in the column <strong>Total</strong> below.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>AgentNo</p></th>
+<th class="head"><p>0</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>Total</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0.233</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>6.233</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.233</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>5.533</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>0.3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>6.3</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>7</p></td>
+</tr>
+</tbody>
+</table>
+<p>Finally we calculate the average of the <strong>Total</strong> column and average by dividing by number of agents to normalise. <br>
+This final value of 0.94 is then used as part of the observations. This gives an indication of the density of conflicts. A value close to 1 indicates less conflicts upto <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> steps.</p>
+</div>
+<div class="section" id="total-observations-dimensions">
+<h3>Total Observations Dimensions<a class="headerlink" href="#total-observations-dimensions" title="Permalink to this headline">¶</a></h3>
+<p>The total dimensions for the observation can be calculated using the formula</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_local</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">22</span> <span class="o">*</span> <span class="n">n_local</span>
+</pre></div>
+</div>
+<p>This can be found by adding the following observations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#Agent-Conflict-Average-Step">1 - Agent Conflict Average Step</a></p></li>
+<li><p><a class="reference external" href="#local-agents-step-matrix">3 - Local Agent Conflict Steps</a></p></li>
+<li><p><a class="reference external" href="#conflicting-agent-observations">22 - Other observations for local agents</a></p></li>
+</ul>
+</div>
+<div class="section" id="method">
+<h3>Method<a class="headerlink" href="#method" title="Permalink to this headline">¶</a></h3>
+<p>This flattened observation vector of dimension <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">(n_local</span> <span class="pre">-</span> <span class="pre">1)</span> <span class="pre">+</span> <span class="pre">22</span> <span class="pre">*</span> <span class="pre">n_local</span></code> is the final observation which becomes the basis for modelling in a fully-connected neural network</p>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-align:center head"><p>Mean score</p></th>
+<th class="text-align:center head"><p>Mean norm. score</p></th>
+<th class="text-align:center head"><p>Mean % completed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FullyConnected [256,256]</p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+<td class="text-align:center"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>(<em>preliminary</em>)</p>
+</div>
+<div class="section" id="plots">
+<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="research/baselines/plots/fc_256.png" /></p>
+<p>(<em>preliminary</em>)</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

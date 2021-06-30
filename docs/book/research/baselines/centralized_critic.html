@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Centralized Critic PPO</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Imitation Learning Training" href="imitation_learning.html" />
+    <link rel="prev" title="Getting started" href="getting-started.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tuts/or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tuts/rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tuts/rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tuts/rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../baselines.html">
+   RLlib Baselines
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/book/research/baselines/centralized_critic.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-idea">
+   💡 The idea
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#files-and-usage">
+   🗂️ Files and usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training">
+     🚂 Training
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model">
+     🧠 Model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation-details">
+   📦 Implementation Details
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformer">
+     Transformer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#central-critic">
+     Central Critic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agent-model">
+     Agent Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trainer">
+     Trainer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   📈 Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links">
+   🔗 Links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#credits">
+   🌟 Credits
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="centralized-critic-ppo">
+<h1>Centralized Critic PPO<a class="headerlink" href="#centralized-critic-ppo" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-tl-dr admonition">
+<p class="admonition-title">TL;DR</p>
+<p>A PPO agent using a Centralized Critic. The implementation uses a multi-agent variation of Centralized Critic with a Set Transformer for preprocessing the critic’s input.</p>
+</div>
+<div class="section" id="the-idea">
+<h2>💡 The idea<a class="headerlink" href="#the-idea" title="Permalink to this headline">¶</a></h2>
+<p>The Flatland environment presents challenges to learning algorithms with respect to the agent’s behavior when faced with the presence of other agents, as well as with sparse and delayed rewards. Centralized critic methods are a way to deal with such problematic multi-agent training situations.</p>
+<p>The base architecture implemented here is a a fully connected network with PPO trainer. At execution time the agents will step through the environment in the usual way. During training, however, a different network, is used that provides the gradients on which to train the agent’s network. This “central critic” is provided with a more holistic view of the simulation state in order to better approximate an adequate reward for the agent’s actions in the current situation.</p>
+<p>Different variations of centralized critics exist. The method contained in the baselines does not use global observations as many other implementations, but combines the observations of the to-be-trained-agent with the observations of the other agents. The approach was chosen in order to create a solution that would be feasible in large environments. This might not be the solution with the best performance and participants should therefore not be deterred from developing more specialized variations.</p>
+<p>The model also contains a Set Transformer. This transformer sits between the observations of the agents and the centralized critic in order to, providing the critic with an embedding of the observations. This is useful for dealing with the sparsity of the observations, with the temporal nature of the data, as well as with possible permutation invariance in the case of a changing subset of agents included in the observation.</p>
+</div>
+<div class="section" id="files-and-usage">
+<h2>🗂️ Files and usage<a class="headerlink" href="#files-and-usage" title="Permalink to this headline">¶</a></h2>
+<p>The general structure of the code allows substitution of the separate parts, which will be discussed in the next section.</p>
+<div class="section" id="training">
+<h3>🚂 Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
+<p>An example configuration file can be found in <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/experiments/flatland_sparse/small_v0/tree_obs_fc_net/ccppo.yaml"><code class="docutils literal notranslate"><span class="pre">neurips2020-flatland-baselines/experiments/flatland_sparse/small_v0/tree_obs_fc_net/ccppo.yaml</span></code></a>.</p>
+<p>Run it with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>python ./train.py -f experiments/flatland_sparse/small_v0/tree_obs_fc_net/ccppo.yaml  
+</pre></div>
+</div>
+</div>
+<div class="section" id="model">
+<h3>🧠 Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<p>The model is implemented in <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/models/cc_transformer.py"><code class="docutils literal notranslate"><span class="pre">neurips2020-flatland-baselines/models/cc_transformer.py</span></code></a></p>
+</div>
+</div>
+<div class="section" id="implementation-details">
+<h2>📦 Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/models/cc_transformer.py"><code class="docutils literal notranslate"><span class="pre">cc_transformer</span></code></a> model file contains the code for all concepts needed for central-critic and transformer implementation. The three components Transformer, Agent-Model and Critic-Model are constructed and put together in the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/models/cc_transformer.py#L20"><code class="docutils literal notranslate"><span class="pre">CentralizedCriticModel</span></code></a> class.</p>
+<div class="section" id="transformer">
+<h3>Transformer<a class="headerlink" href="#transformer" title="Permalink to this headline">¶</a></h3>
+<p>The transformer is built with self-attention layers which can be found in the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/models/cc_transformer.py#L183"><code class="docutils literal notranslate"><span class="pre">MultiHeadAttentionLayer</span></code></a> class. The layers will calculate the embedding with trained linear projections. The dimensions of these outputs can be decided on, as they are the product of the number of parallel heads (<code class="docutils literal notranslate"><span class="pre">num_head</span></code>) and the output dimension (<code class="docutils literal notranslate"><span class="pre">d_model</span></code>).</p>
+</div>
+<div class="section" id="central-critic">
+<h3>Central Critic<a class="headerlink" href="#central-critic" title="Permalink to this headline">¶</a></h3>
+<p>The central critic is constructed with the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/models/cc_transformer.py#L155"><code class="docutils literal notranslate"><span class="pre">build_fullyConnected</span></code></a> function to build a fully connected network of the given input, output and hidden layer sizes.</p>
+</div>
+<div class="section" id="agent-model">
+<h3>Agent Model<a class="headerlink" href="#agent-model" title="Permalink to this headline">¶</a></h3>
+<p>The agents are built with fully connected layers in the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/models/cc_transformer.py#L155"><code class="docutils literal notranslate"><span class="pre">build_fullyConnected</span></code></a> to build a fully connected network of the given input, output and hidden layer sizes.</p>
+</div>
+<div class="section" id="trainer">
+<h3>Trainer<a class="headerlink" href="#trainer" title="Permalink to this headline">¶</a></h3>
+<p>For training the fully connected layers we use the standard PPO trainer implementation provided by RLlib with necessary updates to the post-processing. In <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-baselines/blob/centralized-critic/models/cc_transformer.py#L442"><code class="docutils literal notranslate"><span class="pre">centralized_critic_postprocessing</span></code></a> we ensure that <code class="docutils literal notranslate"><span class="pre">training_batches</span></code> contain all the necessary observations of neighboring agents, as well as performing the advantage estimation.</p>
+<p>The trainer registration is done outside of classes or functions at the end of the file. Here, the CCPPO Policy is defined, based on the standard <code class="docutils literal notranslate"><span class="pre">PPOTrainer</span></code> and subsequently used to register the model to be used in ray.</p>
+</div>
+</div>
+<div class="section" id="results">
+<h2>📈 Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The described approach was developed and evaluated in a project of <a class="reference external" href="https://www.digitale-schiene-deutschland.de/index_en.html">Deutsche Bahn</a> in cooperation with <a class="reference external" href="http://www.instadeep.com/">InstaDeep</a>. In the context of the project CCPPO was validated and directly compared to standard PPO on a previous version of Flatland. This original implementation that used a custom version of a sparse reward and a custom observation similar to Flatland’s tree observation outperformed standard PPO. For the current baselines the CCPPO model was run using the new Flatland version together with its standard observation and reward. The graph below shows the results for these runs with and without the transformer. For comparison, a run of the current best method in the baseline (Ape-X) with comparable sizes and parameters is shown. The full configuration can be found in the corresponding CCPPO config files. The results show that CCPPO is able to learn in this setup, but with a lower performance than Ape-X. We provide an example setup for experiments with CCPPO and encourage participants to further refine and develop this approach.</p>
+<p><a class="reference external" href="https://app.wandb.ai/masterscrat/flatland/reports/Flatland-small_v0-CCPPO--VmlldzoxNTIwMzM"><img alt="w&amp;b report" src="../../../_images/ccppo_example.png" /></a></p>
+</div>
+<div class="section" id="links">
+<h2>🔗 Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/instadeepai/gtc-course-2020">Single agent approach from InstaDeep</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1910.06764">Transformer Paper - Stabilizing Transformers for Reinforcement Learning (Parisotto et al.)</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1810.02912.pdf">Actor-Attention-Critic for Multi-Agent Reinforcement Learning (Iqbal et al.)</a></p></li>
+</ul>
+</div>
+<div class="section" id="credits">
+<h2>🌟 Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.digitale-schiene-deutschland.de/index_en.html"><img alt="DB" src="../../../_images/db-logo.png" /></a></p>
+<p><a class="reference external" href="http://www.instadeep.com/"><img alt="InstaDeep" src="../../../_images/instadeep-logo.png" /></a></p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="getting-started.html" title="previous page">Getting started</a>
+    <a class='right-next' id="next-link" href="imitation_learning.html" title="next page">Imitation Learning Training</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>
