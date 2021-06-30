@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Multiple Agents</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/tuts/or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/tuts/rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/tuts/rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/challenges/neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/challenges/neurips2020/faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/challenges/halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../book/misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../book/misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../book/misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/getting-started/rl/multi-agent.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#command-line-arguments">
+   Command line arguments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperparameter-sweeps">
+   Hyperparameter Sweeps
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="multiple-agents">
+<h1>Multiple Agents<a class="headerlink" href="#multiple-agents" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-goal admonition">
+<p class="admonition-title">Goal</p>
+<p>In this tutorial, you will train a multi-agent policy that you can submit to the AMLD 2021 Flatland Challenge.</p>
+</div>
+<p>We will use the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/baselines/blob/master/torch_training/multi_agent_training.py"><code class="docutils literal notranslate"><span class="pre">multi_agent_training.py</span></code></a> file to train multiple agents.</p>
+<p>The file in the previous section was kept as simple as possible on purpose. In this section, we want to create a more robust policy that we’ll be able to submit in the challenge. We will implement many quality-of-life improvements: command line parameters, utilities to save and restore policies, tools to log metrics about the training process…</p>
+<p>We consider that you have already gone through the previous section and won’t repeat the details about setting up the environment, creating the policy etc.</p>
+<div class="section" id="command-line-arguments">
+<h2>Command line arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<p>We use the <a class="reference external" href="https://pypi.org/project/argparse/"><code class="docutils literal notranslate"><span class="pre">argparse</span></code></a> module to parse command line arguments. These arguments have two purposes: they allow us to tweak the training parameters without having to change the code, and they will also allow us to run simple hyper-parameter sweeps using W&amp;B tools.</p>
+<p>We define all the arguments we need with each time their name, a short description, their type, and their default value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--n_episodes&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;number of episodes to run&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2500</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-t&quot;</span><span class="p">,</span> <span class="s2">&quot;--training_env_config&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;training config id (eg 0 for Test_0)&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="s2">&quot;--evaluation_env_config&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;evaluation config id (eg 0 for Test_0)&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--n_evaluation_episodes&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;number of evaluation episodes&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--checkpoint_interval&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;checkpoint interval&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--eps_start&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;max exploration&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">argparse</span></code> will do the parsing for us, and can summarize all the arguments by using <code class="docutils literal notranslate"><span class="pre">--help</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: multi_agent_training.py [-h] [-n N_EPISODES] [-t TRAINING_ENV_CONFIG]</span>
+<span class="go">                               [-e EVALUATION_ENV_CONFIG]</span>
+<span class="go">                               [--n_evaluation_episodes N_EVALUATION_EPISODES]</span>
+<span class="go">                               [--checkpoint_interval CHECKPOINT_INTERVAL]</span>
+<span class="go">                               [--eps_start EPS_START] [--eps_end EPS_END]</span>
+<span class="go">                               [--eps_decay EPS_DECAY]</span>
+<span class="go">                               [--buffer_size BUFFER_SIZE]</span>
+<span class="go">                               [--buffer_min_size BUFFER_MIN_SIZE]</span>
+<span class="go">                               [--restore_replay_buffer RESTORE_REPLAY_BUFFER]</span>
+<span class="go">                               [--save_replay_buffer SAVE_REPLAY_BUFFER]</span>
+<span class="go">                               [--batch_size BATCH_SIZE] [--gamma GAMMA]</span>
+<span class="go">                               [--tau TAU] [--learning_rate LEARNING_RATE]</span>
+<span class="go">                               [--hidden_size HIDDEN_SIZE]</span>
+<span class="go">                               [--update_every UPDATE_EVERY]</span>
+<span class="go">                               [--use_gpu USE_GPU] [--num_threads NUM_THREADS]</span>
+<span class="go">                               [--render RENDER]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -n N_EPISODES, --n_episodes N_EPISODES</span>
+<span class="go">                        number of episodes to run</span>
+<span class="go">  -t TRAINING_ENV_CONFIG, --training_env_config TRAINING_ENV_CONFIG</span>
+<span class="go">                        training config id (eg 0 for Test_0)</span>
+<span class="go">  -e EVALUATION_ENV_CONFIG, --evaluation_env_config EVALUATION_ENV_CONFIG</span>
+<span class="go">                        evaluation config id (eg 0 for Test_0)</span>
+<span class="go">  --n_evaluation_episodes N_EVALUATION_EPISODES</span>
+<span class="go">                        number of evaluation episodes</span>
+<span class="go">  --checkpoint_interval CHECKPOINT_INTERVAL</span>
+<span class="go">                        checkpoint interval</span>
+<span class="go">  --eps_start EPS_START</span>
+<span class="go">                        max exploration</span>
+<span class="go">  --eps_end EPS_END     min exploration</span>
+<span class="go">  --eps_decay EPS_DECAY</span>
+<span class="go">                        exploration decay</span>
+<span class="go">  --buffer_size BUFFER_SIZE</span>
+<span class="go">                        replay buffer size</span>
+<span class="go">  --buffer_min_size BUFFER_MIN_SIZE</span>
+<span class="go">                        min buffer size to start training</span>
+<span class="go">  --restore_replay_buffer RESTORE_REPLAY_BUFFER</span>
+<span class="go">                        replay buffer to restore</span>
+<span class="go">  --save_replay_buffer SAVE_REPLAY_BUFFER</span>
+<span class="go">                        save replay buffer at each evaluation interval</span>
+<span class="go">  --batch_size BATCH_SIZE</span>
+<span class="go">                        minibatch size</span>
+<span class="go">  --gamma GAMMA         discount factor</span>
+<span class="go">  --tau TAU             soft update of target parameters</span>
+<span class="go">  --learning_rate LEARNING_RATE</span>
+<span class="go">                        learning rate</span>
+<span class="go">  --hidden_size HIDDEN_SIZE</span>
+<span class="go">                        hidden size (2 fc layers)</span>
+<span class="go">  --update_every UPDATE_EVERY</span>
+<span class="go">                        how often to update the network</span>
+<span class="go">  --use_gpu USE_GPU     use GPU if available</span>
+<span class="go">  --num_threads NUM_THREADS</span>
+<span class="go">                        number of threads PyTorch can use</span>
+<span class="go">  --render RENDER       render 1 episode in 100</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hyperparameter-sweeps">
+<h2>Hyperparameter Sweeps<a class="headerlink" href="#hyperparameter-sweeps" title="Permalink to this headline">¶</a></h2>
+<p>Evaluating the performance of reinforcement learning approaches is <a class="reference external" href="https://arxiv.org/abs/1709.06560">famously difficult</a>, due to the variance in the results and hyperpamater sensibility.</p>
+<p>A good approach to test how robust a method is and to optimize its hyperparameter is to run “hyperparameter sweeps”, ie to run many training sessions with slightly different parameters to get a better idea of how well it performs.</p>
+<p>For this purpose, we will use the <a class="reference external" href="https://docs.wandb.com/sweeps">Weight &amp; Biases Sweep</a> tools. We include a <a class="reference external" href="https://gitlab.aicrowd.com/flatland/neurips2020-flatland-starter-kit/blob/master/sweep.yaml">sweep.yml</a> file which describes a possible search space for the hyperparameters:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">program</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reinforcement_learning/multi_agent_training.py</span>
+<span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bayes</span>
+<span class="nt">metric</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">evaluation/smoothed_score</span>
+    <span class="nt">goal</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">maximize</span>
+<span class="nt">parameters</span><span class="p">:</span>
+    <span class="nt">n_episodes</span><span class="p">:</span>
+        <span class="nt">values</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">2000</span><span class="p p-Indicator">]</span>
+    <span class="nt">hidden_size</span><span class="p">:</span>
+        <span class="nt">values</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">128</span><span class="p p-Indicator">,</span> <span class="nv">256</span><span class="p p-Indicator">,</span> <span class="nv">512</span><span class="p p-Indicator">]</span>
+    <span class="nt">buffer_size</span><span class="p">:</span>
+        <span class="nt">values</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">50000</span><span class="p p-Indicator">,</span> <span class="nv">100000</span><span class="p p-Indicator">,</span> <span class="nv">500000</span><span class="p p-Indicator">,</span> <span class="nv">1000000</span><span class="p p-Indicator">]</span>
+    <span class="nt">batch_size</span><span class="p">:</span>
+        <span class="nt">values</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">16</span><span class="p p-Indicator">,</span> <span class="nv">32</span><span class="p p-Indicator">,</span> <span class="nv">64</span><span class="p p-Indicator">,</span> <span class="nv">128</span><span class="p p-Indicator">]</span>
+    <span class="nt">training_env_config</span><span class="p">:</span>
+        <span class="nt">values</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span> <span class="nv">1</span><span class="p p-Indicator">,</span> <span class="nv">2</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>You can use this file to initialize a sweep:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wandb sweep sweep.yaml
+<span class="go">wandb: Creating sweep from: sweep.yaml</span>
+<span class="go">wandb: Created sweep with ID: tli6g4vw</span>
+<span class="go">wandb: View sweep at: https://app.wandb.ai/masterscrat/neurips2020-flatland-starter-kit-reinforcement_learning/sweeps/tli6g4vw</span>
+<span class="go">wandb: Run sweep agent with: wandb agent masterscrat/neurips2020-flatland-starter-kit-reinforcement_learning/tli6g4vw</span>
+</pre></div>
+</div>
+<p>You can now run one or multiple instances of the suggested command to start training sessions. The DQN baseline provided in the starter kit runs on a single core, so you can scale up the hyperparameter search by starting as many training sessions as you have cores on your machine.</p>
+<p>The results will start pouring in. A nice way to visualize them is to clone <a class="reference external" href="https://wandb.ai/masterscrat/flatland-examples-reinforcement_learning/reports/Flatland-Starter-Kit-Training-in-environments-of-various-sizes--VmlldzoxNjgxMTk">one of the provided W&amp;B report</a>, and to add a new run set containing the metrics from your runs. This makes it easy to compare performance with existing results.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

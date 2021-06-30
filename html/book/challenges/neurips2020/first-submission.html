@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Making a Submission</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FAQs" href="faq.html" />
+    <link rel="prev" title="Evaluation Metrics" href="eval.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/flatland-logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to Flatland
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/installation.html">
+   Installing Flatland
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/The_Rail_Environment.html">
+   Using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RailEnv
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting-started/sequential-agent.html">
+   Sequential Agent
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Environment
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/observations.html">
+   Provided Observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/level_generation.html">
+   Level Generation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/environment_information.html">
+   Environment information
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/custom_observations.html">
+   Custom observations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../env/speed_profiles.html">
+   Speed profiles
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../env/updates.html">
+   Updates
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../env/updates/Agent-Close-Following.html">
+     Unordered Close Following
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://flatlandrl-docs.aicrowd.com/flatland.html">
+   API Reference
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../tuts/or.html">
+   Operations Research
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tuts/rl.html">
+   Reinforcement Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tuts/rl/single-agent.html">
+     Single agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tuts/rl/multi-agent.html">
+     Multiple Agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Challenges
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../amld2021.html">
+   AMLD 2021
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../amld2021/envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../amld2021/eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../amld2021/first-submission.html">
+     Making a Submission
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../neurips2020-challenge.html">
+   Neurips 2020
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="envconfig.html">
+     Environment Configurations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="eval.html">
+     Evaluation Metrics
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Making a Submission
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="faq.html">
+     FAQs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../halloffame.html">
+   Hall of Fame
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../research/baselines.html">
+   RLlib Baselines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/getting-started.html">
+     Getting started
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/centralized_critic.html">
+     Centralized Critic PPO
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/imitation_learning.html">
+     Imitation Learning Training
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/global_density_obs.html">
+     Global Density Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/combined_tree_local_conflict_obs.html">
+     Combined Observation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../research/baselines/action_masking_and_skipping.html">
+     Frame skipping and action masking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../research/research-ideas.html">
+   Research Ideas
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  FAQ
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/env.html">
+   Flatland Environment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../faq/research.html">
+   Flatland Research
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Miscellaneous
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/external-resources.html">
+   Community Projects
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../misc/contributing.html">
+   Contributing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-code.html">
+     Writing code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../misc/contributing-doc.html">
+     Writing documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/credits.html">
+   Credits
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/book/challenges/neurips2020/first-submission.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#all-aboard">
+   🚂 All aboard!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   📦 Setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#register">
+     Register
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#starter-kit">
+     Starter Kit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-the-conda-environment">
+     Create the conda environment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#test-your-local-setup">
+   ✅ Test your local setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#redis">
+     Redis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluator-service">
+     Evaluator service
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-agent">
+     The agent
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-structure">
+   🗂️ Code structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aicrowd-json">
+     aicrowd.json
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-sh">
+     run.sh
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submitting">
+   📤 Submitting!
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-your-repository">
+     Create your repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#push-a-tag">
+     Push a tag
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-stops">
+   🚉 Next stops
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting">
+   🐛 Troubleshooting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#env-client-step-called-before-env-client-env-create-call">
+     “
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       env_client.step()
+      </span>
+      <span class="pre">
+       called
+      </span>
+      <span class="pre">
+       before
+      </span>
+      <span class="pre">
+       env_client.env_create()
+      </span>
+      <span class="pre">
+       call
+      </span>
+     </code>
+     ”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unknown-locale-utf-8">
+     “
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       unknown
+      </span>
+      <span class="pre">
+       locale:
+      </span>
+      <span class="pre">
+       UTF-8
+      </span>
+     </code>
+     ”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activate-is-not-a-conda-command">
+     “
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       activate
+      </span>
+      <span class="pre">
+       is
+      </span>
+      <span class="pre">
+       not
+      </span>
+      <span class="pre">
+       a
+      </span>
+      <span class="pre">
+       conda
+      </span>
+      <span class="pre">
+       command
+      </span>
+     </code>
+     ”
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="making-a-submission">
+<h1>Making a Submission<a class="headerlink" href="#making-a-submission" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-tl-dr admonition">
+<p class="admonition-title">TL;DR</p>
+<p>This document will show you how to submit a test submission in 10 minutes.</p>
+</div>
+<div class="section" id="all-aboard">
+<h2>🚂 All aboard!<a class="headerlink" href="#all-aboard" title="Permalink to this headline">¶</a></h2>
+<p>In the next ten minutes, you will submit your first agent to the <a class="reference external" href="https://www.aicrowd.com/challenges/flatland">AMLD 2021 Flatland Challenge</a> and will see your name on the leaderboard.</p>
+<p><img alt="leaderboard" src="book/challenges/neurips2020/../assets/images/you.png" /></p>
+<p>If you have any problem along the way, take a look at the <a class="reference external" href="#troubleshooting">troubleshooting tips</a> at the end of this page. If things still don’t go your way, don’t hesitate to <a class="reference external" href="https://discourse.aicrowd.com/c/neurips-2020-flatland-challenge">ask about it in the forum</a>.</p>
+</div>
+<div class="section" id="setup">
+<h2>📦 Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="register">
+<h3>Register<a class="headerlink" href="#register" title="Permalink to this headline">¶</a></h3>
+<p>Sign up on AIcrowd and Click on <code class="docutils literal notranslate"><span class="pre">Participate</span></code> on the challenge page at : <a class="reference external" href="https://www.aicrowd.com/challenges/flatland">https://www.aicrowd.com/challenges/flatland</a></p>
+</div>
+<div class="section" id="starter-kit">
+<h3>Starter Kit<a class="headerlink" href="#starter-kit" title="Permalink to this headline">¶</a></h3>
+<p>Start by cloning the <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland-starter-kit">starter kit</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://gitlab.aicrowd.com/flatland/flatland-starter-kit.git/
+<span class="gp">$ </span><span class="nb">cd</span> flatland-starter-kit
+</pre></div>
+</div>
+<p>The starter kit is a full baseline you can directly submit to the competition! We will talk more about it in the last section: how it works, how to train it, and how you could extend it.</p>
+<p>For now we’ll just submit it as is to see how the process works.</p>
+</div>
+<div class="section" id="create-the-conda-environment">
+<h3>Create the conda environment<a class="headerlink" href="#create-the-conda-environment" title="Permalink to this headline">¶</a></h3>
+<p>The start kit uses the conda package manager. <a class="reference external" href="https://www.anaconda.com/products/individual">Install it</a> if it is not setup on your machine.</p>
+<p>You can now run the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda env create -f environment.yml <span class="c1"># creates the flatland-rl environment</span>
+<span class="gp">$ </span>conda activate flatland-rl <span class="c1"># activates it</span>
+<span class="gp">$ </span>pip install -U flatland-rl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Flatland is tested with Python 3.6 and 3.7 on modern versions of macOS and Linux. We are unable to support Windows at this time. WSL is known to work but you may encounter problems with graphical rendering. Your <span class="xref myst">contribution is welcome</span> if you can help with this!</p>
+</div>
+</div>
+</div>
+<div class="section" id="test-your-local-setup">
+<h2>✅ Test your local setup<a class="headerlink" href="#test-your-local-setup" title="Permalink to this headline">¶</a></h2>
+<p>We will now run the agent locally to check that it works as expected.</p>
+<p>Let’s download the test environments. Head to the <a class="reference external" href="https://www.aicrowd.com/challenges/flatland/dataset_files">challenge resources</a> and download the provided test set. Untar them in <code class="docutils literal notranslate"><span class="pre">./scratch/test-envs</span></code>.</p>
+<p>Your directory structure should be as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>./scratch
+└── test-envs
+    ├── metadata.csv
+    ├── Test_0
+    │   ├── Level_0.pkl
+    │   └── Level_1.pkl
+    ├── Test_1
+    │   ├── Level_0.pkl
+    │   └── Level_1.pkl
+    ├── Test_2
+    │   ├── Level_0.pkl
+    │   └── Level_1.pkl
+    ├── Test_3
+    │   ├── Level_0.pkl
+    │   └── Level_1.pkl
+    ├── ...
+</pre></div>
+</div>
+<p>We will now replicate the setup used on AIcrowd on your local machine to ensure that your submission will be evaluated without problem when you submit it.
+This involves three components: your agent, the evaluator service, and a Redis server to let them communicate.</p>
+<div class="section" id="redis">
+<h3>Redis<a class="headerlink" href="#redis" title="Permalink to this headline">¶</a></h3>
+<p>The communication between your agent and the evaluator is done through a Redis server. You should ensure that a redis server is running on localhost. Follow <a class="reference external" href="https://redis.io/topics/quickstart">these instructions</a> to set it up.</p>
+<p>You can check that things are ready by running:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>redis-cli ping
+<span class="go">PONG</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="evaluator-service">
+<h3>Evaluator service<a class="headerlink" href="#evaluator-service" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start the evaluator service. You should use different terminals for the evaluator and the agent as they will need to run at the same time.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ flatland-evaluator --tests ./scratch/test-envs/ --shuffle False
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-agent">
+<h3>The agent<a class="headerlink" href="#the-agent" title="Permalink to this headline">¶</a></h3>
+<p>You can now start the agent in a new terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda activate flatland-rl <span class="c1"># environment needs to be activated in each new tab</span>
+$ <span class="nb">export</span> <span class="nv">AICROWD_TESTS_FOLDER</span><span class="o">=</span>./scratch/test-envs/
+$ python run.py
+</pre></div>
+</div>
+<p>The agent should now start interacting with the evaluator, and you should see the results coming in:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>flatland-evaluator --tests ./scratch/test-envs/ --shuffle False
+<span class="go">[&#39;Test_12/Level_0.pkl&#39;, &#39;Test_1/Level_1.pkl&#39;, &#39;Test_10/Level_1.pkl&#39;, &#39;Test_11/Level_0.pkl&#39;, &#39;Test_8/Level_0.pkl&#39;, &#39;Test_4/Level_1.pkl&#39;, &#39;Test_2/Level_1.pkl&#39;, &#39;Test_5/Level_0.pkl&#39;, &#39;Test_7/Level_0.pkl&#39;, &#39;Test_6/Level_1.pkl&#39;, &#39;Test_3/Level_1.pkl&#39;, &#39;Test_7/Level_1.pkl&#39;, &#39;Test_9/Level_1.pkl&#39;, &#39;Test_10/Level_0.pkl&#39;, &#39;Test_6/Level_0.pkl&#39;, &#39;Test_2/Level_0.pkl&#39;, &#39;Test_11/Level_1.pkl&#39;, &#39;Test_0/Level_1.pkl&#39;, &#39;Test_0/Level_0.pkl&#39;, &#39;Test_9/Level_0.pkl&#39;, &#39;Test_4/Level_0.pkl&#39;, &#39;Test_13/Level_0.pkl&#39;, &#39;Test_12/Level_1.pkl&#39;, &#39;Test_8/Level_1.pkl&#39;, &#39;Test_3/Level_0.pkl&#39;, &#39;Test_5/Level_1.pkl&#39;, &#39;Test_13/Level_1.pkl&#39;, &#39;Test_1/Level_0.pkl&#39;]</span>
+<span class="go">Listening at :  flatland-rl::FLATLAND_RL_SERVICE_ID::commands</span>
+<span class="go">Evaluating : Test_12/Level_0.pkl</span>
+<span class="go">Evaluating : Test_1/Level_1.pkl</span>
+<span class="go">Evaluating : Test_10/Level_1.pkl</span>
+<span class="go">Evaluating : Test_11/Level_0.pkl</span>
+<span class="go">Evaluating : Test_8/Level_0.pkl</span>
+<span class="go">Evaluating : Test_4/Level_1.pkl</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>You don’t need to let the evaluation run until the end. The goal is simply to check that everything works as expected.</p>
+<p>After extending this baseline, this process will allow you to check that your solution is fully working.</p>
+</div>
+</div>
+<div class="section" id="code-structure">
+<h2>🗂️ Code structure<a class="headerlink" href="#code-structure" title="Permalink to this headline">¶</a></h2>
+<p>There are two files that need to be present in your repository for the evaluation to work as intended: <code class="docutils literal notranslate"><span class="pre">aicrowd.json</span></code> to indicate which challenge you are taking part in, and <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> which serves as the entrypoint of your solution.</p>
+<div class="section" id="aicrowd-json">
+<h3>aicrowd.json<a class="headerlink" href="#aicrowd-json" title="Permalink to this headline">¶</a></h3>
+<p>Each repository must have an <code class="docutils literal notranslate"><span class="pre">aicrowd.json</span></code> file with the following content:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;challenge_id&quot;</span><span class="p">:</span> <span class="s2">&quot;neurips-2020-flatland-challenge&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;grader_id&quot;</span><span class="p">:</span> <span class="s2">&quot;neurips-2020-flatland-challenge&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;RL&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is used to map your submission to the proper challenge. The starter kit repository includes a sample <a class="reference external" href="https://gitlab.aicrowd.com/flatland/flatland-starter-kit/blob/master/aicrowd.json"><code class="docutils literal notranslate"><span class="pre">aicrowd.json</span></code></a> file with the correct values.</p>
+<p>You need to ensure that you set the proper <strong><code class="docutils literal notranslate"><span class="pre">tags</span></code></strong> with each submission. The tags indicate the methods you use in that submission, and need to be at least one of:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;RL&quot;</span></code> if you used reinforcement learning,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;OR&quot;</span></code> if you used operations research,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;other&quot;</span></code> if you used another method.</p></li>
+</ul>
+<p>Careful, these tags are case sensitive! You can combine multiple tags, for example if you combine an OR method for long-term planning with an RL method to handle short-term rescheduling, you should indicate: <code class="docutils literal notranslate"><span class="pre">&quot;tags&quot;:</span> <span class="pre">[&quot;RL&quot;,</span> <span class="pre">&quot;OR&quot;]</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><span class="xref myst">Different prizes</span> are available depending on the method you use! Therefore it is important to fill this tag correctly. Winning solutions will be verified by the organizers to ensure the method was properly declared.</p>
+</div>
+<p>If you set <code class="docutils literal notranslate"><span class="pre">debug</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the evaluation will run for a shorter time, and the logs from your submitted code will be made available to you to help you debug. These test submissions will appear at the bottom of the leaderboard (score of <code class="docutils literal notranslate"><span class="pre">-1.0</span></code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default <code class="docutils literal notranslate"><span class="pre">debug</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, so when you are ready to make a competitive submission, make sure to set <code class="docutils literal notranslate"><span class="pre">debug</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code>!</p>
+</div>
+</div>
+<div class="section" id="run-sh">
+<h3>run.sh<a class="headerlink" href="#run-sh" title="Permalink to this headline">¶</a></h3>
+<p>The starter kit repository includes a sample <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> file that you don’t need to change. The default <code class="docutils literal notranslate"><span class="pre">run.sh</span></code> file calls the <code class="docutils literal notranslate"><span class="pre">run.py</span></code> file, which is where you would usually implement your solution.</p>
+</div>
+</div>
+<div class="section" id="submitting">
+<h2>📤 Submitting!<a class="headerlink" href="#submitting" title="Permalink to this headline">¶</a></h2>
+<p>To submit to the challenge, you will use <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">git tags</a>. You are allowed to submit up to 10 debug submissions and 5 non-debug submissions per day (rolling window of 24h).</p>
+<div class="section" id="create-your-repository">
+<h3>Create your repository<a class="headerlink" href="#create-your-repository" title="Permalink to this headline">¶</a></h3>
+<p>Head to <a class="reference external" href="https://gitlab.aicrowd.com/projects/new">gitlab.aicrowd.com/projects/new</a> to create your private repository. You can use any name you want for it.</p>
+<p><img alt="" src="book/challenges/neurips2020/../assets/images/create-repo.png" /></p>
+</div>
+<div class="section" id="push-a-tag">
+<h3>Push a tag<a class="headerlink" href="#push-a-tag" title="Permalink to this headline">¶</a></h3>
+<p>You first need to add an SSH key to your GitLab account by following <a class="reference external" href="https://docs.gitlab.com/ee/ssh/README.html#adding-an-ssh-key-to-your-gitlab-account">these instructions</a> (replacing references of <code class="docutils literal notranslate"><span class="pre">gitlab.com</span></code> with <code class="docutils literal notranslate"><span class="pre">gitlab.aicrowd.com</span></code>). If you do not have SSH Keys, you will first need to <a class="reference external" href="https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair">generate a pair</a>.</p>
+<p>You can then create a submission by <strong>pushing a tag</strong> to your repository.</p>
+<p>First add a git remote pointing to your newly created repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="c1"># change the line below to use your AIcrowd username and repository name:</span>
+<span class="gp">$ </span>git remote add aicrowd git@gitlab.aicrowd.com:&lt;YOUR_AICROWD_USER_NAME&gt;/&lt;YOUR_REPO_NAME&gt;.git
+</pre></div>
+</div>
+<p>Finally submit your solution by creating a tag for your submission and pushing it:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git tag submission-v0.1 <span class="c1"># needs a new tag name for each submission!</span>
+<span class="gp">$ </span>git push aicrowd master
+<span class="gp">$ </span>git push aicrowd submission-v0.1
+</pre></div>
+</div>
+<div class="admonition-submission-tags admonition">
+<p class="admonition-title">Submission tags</p>
+<p>Any tag push where the tag name begins with “submission-” to your private repository is considered as a submission!
+You are allowed up to 5 submissions per day.</p>
+</div>
+<p>Note that if the content of your repository does not change, then pushing a new tag will <strong>not</strong> trigger a new evaluation.</p>
+<p>You should now be able to see the details of your submission at:</p>
+<p><span class="xref myst">https://gitlab.aicrowd.com/&lt;YOUR_AICROWD_USER_NAME&gt;/&lt;YOUR_REPO_NAME&gt;/issues</span></p>
+<p>You should start seeing something like this at the address above:</p>
+<p><img alt="submission issue" src="book/challenges/neurips2020/../assets/images/submission-issue.png" /></p>
+<p>Be patient, the evaluation will take some time! 🕙</p>
+</div>
+</div>
+<div class="section" id="next-stops">
+<h2>🚉 Next stops<a class="headerlink" href="#next-stops" title="Permalink to this headline">¶</a></h2>
+<p>The starter kit contains 2 example policies to get started with this challenge:</p>
+<ul class="simple">
+<li><p>a simple single-agent DQN method</p></li>
+<li><p>a more robust multi-agent DQN method that you can submit out of the box to the challenge 🚀</p></li>
+</ul>
+<p><strong>🔗 <a class="reference external" href="https://flatland.aicrowd.com/getting-started/rl/single-agent.html">Train the single-agent DQN policy</a></strong></p>
+<p><strong>🔗 <a class="reference external" href="https://flatland.aicrowd.com/getting-started/rl/multi-agent.html">Train the multi-agent DQN policy</a></strong></p>
+<p>The single-agent example is meant as a minimal example of how to use DQN. The multi-agent is a better starting point to create your own solution.</p>
+<p>You can fully train the multi-agent policy in Colab for free! <a class="reference external" href="https://colab.research.google.com/drive/1GbPwZNQU7KJIJtilcGBTtpOAD3EabAzJ?usp=sharing"><img alt="Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>To go further, explore the <span class="xref myst">research baselines</span> which use RLlib to train using advanced algorithms such as Ape-X, PPO or imitation learning methods such as DQfD.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>🐛 Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="env-client-step-called-before-env-client-env-create-call">
+<h3>“<code class="docutils literal notranslate"><span class="pre">env_client.step()</span> <span class="pre">called</span> <span class="pre">before</span> <span class="pre">env_client.env_create()</span> <span class="pre">call</span></code>”<a class="headerlink" href="#env-client-step-called-before-env-client-env-create-call" title="Permalink to this headline">¶</a></h3>
+<p>This occurs if a previous local evaluation was interrupted. The client communicates with the evaluator service through Redis, and sometimes data in Redis can be left in an intermediate state that prevents a new evaluation from starting.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The commands that follow will delete all the data in your Redis database. Don’t run them if you use this Redis database for other purposes!</p>
+</div>
+<p>To solve this problem, run the following commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>redis-cli 
+<span class="go">127.0.0.1:6379&gt; FLUSHALL</span>
+</pre></div>
+</div>
+<p>If you often interrupt submissions, you can systematically cleanup the Redis database before starting the evaluator:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">redis-cli -c &quot;flushall&quot;; flatland-evaluator --tests ./scratch/test-envs/ --shuffle False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unknown-locale-utf-8">
+<h3>“<code class="docutils literal notranslate"><span class="pre">unknown</span> <span class="pre">locale:</span> <span class="pre">UTF-8</span></code>”<a class="headerlink" href="#unknown-locale-utf-8" title="Permalink to this headline">¶</a></h3>
+<p>This happens on macOS. Append this to your <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">export</span> <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
+<span class="gp">$ </span><span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+</pre></div>
+</div>
+<p>And then run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span> ~/.bash_profile
+</pre></div>
+</div>
+<p><a class="reference external" href="https://stackoverflow.com/a/38917471/318557">More details</a></p>
+</div>
+<div class="section" id="activate-is-not-a-conda-command">
+<h3>“<code class="docutils literal notranslate"><span class="pre">activate</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">a</span> <span class="pre">conda</span> <span class="pre">command</span></code>”<a class="headerlink" href="#activate-is-not-a-conda-command" title="Permalink to this headline">¶</a></h3>
+<p>This error can have various causes. Most commonly, this means that your conda installation is either too old, or misconfigured in some way. The easiest fix is to update conda to the latest version and re-install it if it keeps failing.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="eval.html" title="previous page">Evaluation Metrics</a>
+    <a class='right-next' id="next-link" href="faq.html" title="next page">FAQs</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Flatland Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-132885496-4', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>
